@@ -1,0 +1,16 @@
+/* Horizontally align 2nd-level nav items */
+.md-tabs__dropdown {
+    display: flex !important;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 0.5rem 1rem;
+    gap: 1.5rem;
+    max-width: 100%;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Optional: align deeper levels */
+  .md-tabs__dropdown .md-nav__item {
+    margin-right: 1rem;
+  }
