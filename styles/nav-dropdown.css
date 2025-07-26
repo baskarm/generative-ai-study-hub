@@ -1,75 +1,50 @@
-/* ================================================
-   Horizontal Dropdown for 2nd-Level Tabs (on hover)
-   ================================================ */
+/* ======================================================
+   Horizontal Dropdown Menu for MkDocs Material Theme
+   ====================================================== */
 
-   .md-tabs__dropdown {
-    display: flex !important;
+/* Layout for 2nd-level nav items (e.g., under "Reference Hub") */
+.md-nav__item--nested > .md-nav__list {
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    padding: 0.5rem 1rem;
     gap: 1.5rem;
-    max-width: 100%;
-    background: white;
+    padding-left: 1rem;
+    background-color: white;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    position: relative;
-    z-index: 10;
-  }
-  
-  /* Optional spacing between dropdown items */
-  .md-tabs__dropdown .md-nav__item {
-    margin-right: 1rem;
-  }
-  
-  /* When dropdown content is present */
-  .md-tabs__dropdown-content {
-    display: none;
+    z-index: 100;
     position: absolute;
     top: 100%;
     left: 0;
-    z-index: 99;
-    background-color: white;
-    padding: 1rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-    display: flex;
-    gap: 1rem;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+    min-width: max-content;
   }
   
-  /* Hover to reveal dropdown */
-  .md-tabs__dropdown:hover .md-tabs__dropdown-content {
-    display: flex;
-  }
-  
-  /* Dropdown item style */
-  .md-tabs__dropdown-item {
-    white-space: nowrap;
-    padding: 0.5rem 1rem;
-    color: black;
-    text-decoration: none;
-  }
-  
-  .md-tabs__dropdown-item:hover {
-    background-color: #eee;
-  }
-  
-  /* =============================================
-     Nested Navigation Items (3rd-level and deeper)
-     ============================================= */
-  
-  /* 2nd level: group under Reference Hub, shown in horizontal layout */
-  .md-nav__item--nested > .md-nav__list {
-    display: flex;
-    flex-direction: row;
-    gap: 1.5rem;
-    padding-left: 1rem;
-  }
-  
-  /* Show nested list on hover */
+  /* Show 2nd-level dropdown on hover of top-level tab */
   .md-nav__item--nested:hover > .md-nav__list {
-    display: flex !important;
+    visibility: visible;
+    opacity: 1;
   }
   
-  /* 3rd level and deeper: stack vertically */
+  /* Optional: basic hover style for 2nd-level items */
+  .md-nav__list > .md-nav__item {
+    white-space: nowrap;
+    padding: 0.25rem 0.5rem;
+  }
+  
+  /* Layout for 3rd-level items (stacked vertically) */
   .md-nav__item--nested .md-nav__item--nested > .md-nav__list {
+    display: flex;
     flex-direction: column;
-    margin-left: 1rem;
+    margin-left: 1.5rem;
+    padding: 0.5rem 1rem;
+    background: #f9f9f9;
+    box-shadow: inset 1px 0 0 #ddd;
+  }
+  
+  /* Prevent horizontal menu overflow */
+  .md-nav__list {
+    max-width: 100%;
+    overflow-x: auto;
   }
