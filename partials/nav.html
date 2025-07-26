@@ -1,29 +1,38 @@
-<nav class="md-tabs" aria-label="Main navigation">
-    <div class="md-tabs__list">
+{% extends "partials/nav.html" %}
+
+{% block tabs %}
+  <nav class="md-tabs" aria-label="Primary">
+    <ul class="md-tabs__list">
       {% for nav_item in config.nav %}
-        {% if nav_item.children %}
-          <div class="md-tabs__dropdown">
-            <a class="md-tabs__link" href="{{ nav_item.link | url }}">{{ nav_item.title }}</a>
-            <div class="md-tabs__dropdown-content">
+        {% set is_nested = nav_item.children | length > 0 %}
+        <li class="md-tabs__item{% if nav_item.active %} md-tabs__item--active{% endif %}">
+          <a href="{{ nav_item.url | url }}" class="md-tabs__link">
+            {{ nav_item.title }}
+          </a>
+          {% if is_nested %}
+            <ul class="md-tabs__dropdown">
               {% for child in nav_item.children %}
-                {% if child.children %}
-                  <div class="md-tabs__subdropdown">
-                    <a class="md-tabs__dropdown-item parent" href="{{ child.link | url }}">{{ child.title }}</a>
-                    <div class="md-tabs__subdropdown-content">
-                      {% for sub in child.children %}
-                        <a class="md-tabs__dropdown-item" href="{{ sub.link | url }}">{{ sub.title }}</a>
+                <li class="md-nav__item md-nav__item--nested">
+                  <a href="{{ child.url | url }}" class="md-nav__link">
+                    {{ child.title }}
+                  </a>
+                  {% if child.children %}
+                    <ul class="md-nav__list">
+                      {% for grandchild in child.children %}
+                        <li class="md-nav__item">
+                          <a href="{{ grandchild.url | url }}" class="md-nav__link">
+                            {{ grandchild.title }}
+                          </a>
+                        </li>
                       {% endfor %}
-                    </div>
-                  </div>
-                {% else %}
-                  <a class="md-tabs__dropdown-item" href="{{ child.link | url }}">{{ child.title }}</a>
-                {% endif %}
+                    </ul>
+                  {% endif %}
+                </li>
               {% endfor %}
-            </div>
-          </div>
-        {% else %}
-          <a class="md-tabs__link" href="{{ nav_item.link | url }}">{{ nav_item.title }}</a>
-        {% endif %}
+            </ul>
+          {% endif %}
+        </li>
       {% endfor %}
-    </div>
+    </ul>
   </nav>
+{% endblock %}
