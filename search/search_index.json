@@ -1,1 +1,1 @@
-{"config":{"lang":["en"],"separator":"[\\s\\-]+","pipeline":["stopWordFilter"]},"docs":[{"location":"","title":"Welcome to Generative AI Study Hub","text":"<p>Last updated: {{ git_revision_date_localized }}</p>"}]}
+{"config":{"lang":["en"],"separator":"[\\s\\-]+","pipeline":["stopWordFilter"]},"docs":[{"location":"","title":"Welcome to Generative AI Study Hub","text":"<p>Last updated: July 26, 2025</p>"}]}
