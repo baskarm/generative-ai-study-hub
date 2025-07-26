@@ -1,4 +1,4 @@
-/* Force the Adhana logo across all pages (Home, Study Path, Reference Hub) */
+/* Adhana Logo Fix */
 .md-header__button.md-logo img,
 .md-header__title .md-logo img {
   content: url("../images/adhana.png") !important;
@@ -6,24 +6,58 @@
   max-height: 48px !important;
 }
 
-/* --- Horizontally align 2nd-level nav items --- */
+/* Sidebar Horizontal Tweaks (not for top nav) */
 .md-nav__item.md-nav__item--nested > .md-nav__list {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-  
-  /* Optional: style 3rd-level children inside dropdown */
-  .md-nav__item.md-nav__item--nested .md-nav__item--nested > .md-nav__list {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin-left: 2rem;
-  }
-  
-  /* Ensure long dropdowns don’t break the layout */
-  .md-nav__list {
-    max-width: 100%;
-    overflow-x: auto;
-  }
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.md-nav__item.md-nav__item--nested .md-nav__item--nested > .md-nav__list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left: 2rem;
+}
+
+.md-nav__list {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* --- NEW: Top Nav Hover Dropdown (Reference Hub Tabs Horizontal) --- */
+.md-header__inner {
+  position: relative;
+}
+
+.md-tabs__item--active:hover .md-tabs__link + .md-tabs__dropdown {
+  display: flex !important;
+  flex-direction: row;
+  gap: 2rem;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  z-index: 10;
+}
+
+.md-tabs__dropdown {
+  display: none;
+  flex-wrap: wrap;
+}
+
+.md-tabs__dropdown a {
+  white-space: nowrap;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: var(--md-primary-fg-color);
+  font-weight: 500;
+}
+
+.md-tabs__dropdown a:hover {
+  background-color: #f0f0f0;
+  border-radius: 4px;
+}
