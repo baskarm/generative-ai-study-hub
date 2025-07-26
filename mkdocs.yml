@@ -1,0 +1,46 @@
+site_name: Generative AI Study Hub
+theme:
+  name: material
+# Optional: To ensure GitHub Pages picks up the docs
+docs_dir: docs
+nav:
+  - Home: index.md
+  - Study Path:
+      - Section 01 - Intro: study-path/section-01-intro/overview.md
+      - Section 02 - Setup: study-path/section-02-setup/guide.md
+      - Section 03 - NLP Overview: study-path/section-03-nlp/evolution.md
+      - Section 04 - Transformers: study-path/section-04-transformers/architecture.md
+      - Section 05 - Models: study-path/section-05-models/bert.md
+      - Section 06 - Usage: study-path/section-06-usage/tokenization.md
+      - Section 07 - Projects: study-path/section-07-projects/qa-docs.md
+      - Section 08 - LLM Intro: study-path/section-08-llm-intro/basics.md
+      - Section 09 - LLM Prep: study-path/section-09-llm-prep/seq-length.md
+      - Section 10 - LLM Advanced: study-path/section-10-llm-adv/efficiency.md
+      - Section 11 - Special Training: study-path/section-11-llm-special/flash-attn.md
+      - Section 12 - Scaling: study-path/section-12-llm-scaling/deepspeed.md
+  - Reference Hub:
+      - Foundation:
+          - NLP Overview: reference-hub/foundation/nlp-overview.md
+          - Transformers: reference-hub/foundation/transformers.md
+          - Models: reference-hub/foundation/models.md
+      - Practice:
+          - Tokenization: reference-hub/practice/tokenization.md
+          - Embeddings: reference-hub/practice/embeddings.md
+          - Fine Tuning: reference-hub/practice/fine-tuning.md
+          - Efficiency: reference-hub/practice/efficiency.md
+      - Applications:
+          - Semantic Search: reference-hub/applications/semantic-search.md
+          - QA from Docs: reference-hub/applications/qa-over-docs.md
+          - Instruction Tuning: reference-hub/applications/instruction-tuning.md
+      - LLMs:
+          - Introduction: reference-hub/llms/intro.md
+          - RLHF: reference-hub/llms/rlhf.md
+          - Scaling: reference-hub/llms/scaling.md
+      - Knowledge:
+          - Prompt Engineering: reference-hub/knowledge/prompt-engineering.md
+          - Hugging Face: reference-hub/knowledge/huggingface.md
+          - Research Notes: reference-hub/knowledge/research.md
+          - Tools & Libraries: reference-hub/knowledge/tools.md
+          - Learning Links: reference-hub/knowledge/learning-links.md
+
+site_url: https://baskarm.github.io/generative-ai-study-hub/
