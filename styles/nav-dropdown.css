@@ -14,3 +14,35 @@
   .md-tabs__dropdown .md-nav__item {
     margin-right: 1rem;
   }
+
+  .md-tabs__dropdown {
+    position: relative;
+  }
+  
+  .md-tabs__dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 99;
+    background-color: white;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .md-tabs__dropdown:hover .md-tabs__dropdown-content {
+    display: flex;
+  }
+  
+  .md-tabs__dropdown-item {
+    white-space: nowrap;
+    padding: 0.5rem 1rem;
+    color: black;
+    text-decoration: none;
+  }
+  
+  .md-tabs__dropdown-item:hover {
+    background-color: #eee;
+  }

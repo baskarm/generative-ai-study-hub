@@ -1,0 +1,19 @@
+{% set tabs = config.nav %}
+<nav class="md-tabs" aria-label="Tabs">
+  <div class="md-tabs__list">
+    {% for tab in tabs %}
+      {% if tab.children %}
+        <div class="md-tabs__dropdown">
+          <a class="md-tabs__link" href="{{ tab.link | url }}">{{ tab.title }}</a>
+          <div class="md-tabs__dropdown-content">
+            {% for child in tab.children %}
+              <a class="md-tabs__dropdown-item" href="{{ child.link | url }}">{{ child.title }}</a>
+            {% endfor %}
+          </div>
+        </div>
+      {% else %}
+        <a class="md-tabs__link" href="{{ tab.link | url }}">{{ tab.title }}</a>
+      {% endif %}
+    {% endfor %}
+  </div>
+</nav>
