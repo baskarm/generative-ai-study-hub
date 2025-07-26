@@ -2522,8 +2522,8 @@
 <ul>
 <li><a href="#understanding-practical-limitations">Understanding Practical Limitations</a></li>
 <li><a href="#boosting-efficiency-peft-and-lora-in-depth">Boosting Efficiency: PeFT and LoRA in Depth</a></li>
-<li><a href="#managing-data-memory-batch-size--sequence-length">Managing Data Memory: Batch Size &amp; Sequence Length</a></li>
-<li><a href="#advanced-solutions-gradient-accumulation--checkpointing">Advanced Solutions: Gradient Accumulation &amp; Checkpointing</a></li>
+<li><a href="#managing-data-memory-batch-size-sequence-length">Managing Data Memory: Batch Size &amp; Sequence Length</a></li>
+<li><a href="#advanced-solutions-gradient-accumulation-checkpointing">Advanced Solutions: Gradient Accumulation &amp; Checkpointing</a></li>
 <li><a href="#fitting-giants-practical-introduction-to-lora-for-large-models">Fitting Giants: Practical Introduction to LoRA for Large Models</a></li>
 <li><a href="#expanding-lora-adapter-merging-and-effective-evaluations">Expanding LoRA: Adapter Merging and Effective Evaluations</a></li>
 </ul>
@@ -2816,6 +2816,7 @@ gradient_checkpointing: true
 <li><strong>Number of pages per step</strong> → <strong>Batch size</strong></li>
 <li><strong>Words per page</strong> → <strong>Sequence length</strong></li>
 </ul>
+<p><img alt="LLM Training Analogy Diagram" src="images/LLM_Batch_Analogy.png" /></p>
 <p>This incremental reading process enables:
 - Frequent model updates
 - Improved generalization
