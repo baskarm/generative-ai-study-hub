@@ -1,23 +1,36 @@
 site_name: Generative AI Study Hub
+site_url: https://baskarm.github.io/generative-ai-study-hub/
+
 theme:
   name: material
-# Optional: To ensure GitHub Pages picks up the docs
+
 docs_dir: docs
+
 nav:
   - Home: index.md
   - Study Path:
-      - Section 01 - Intro: study-path/section-01-intro/overview.md
-      - Section 02 - Setup: study-path/section-02-setup/guide.md
-      - Section 03 - NLP Overview: study-path/section-03-nlp/evolution.md
-      - Section 04 - Transformers: study-path/section-04-transformers/architecture.md
-      - Section 05 - Models: study-path/section-05-models/bert.md
-      - Section 06 - Usage: study-path/section-06-usage/tokenization.md
-      - Section 07 - Projects: study-path/section-07-projects/qa-docs.md
-      - Section 08 - LLM Intro: study-path/section-08-llm-intro/basics.md
-      - Section 09 - LLM Prep: study-path/section-09-llm-prep/seq-length.md
-      - Section 10 - LLM Advanced: study-path/section-10-llm-adv/efficiency.md
-      - Section 11 - Special Training: study-path/section-11-llm-special/flash-attn.md
-      - Section 12 - Scaling: study-path/section-12-llm-scaling/deepspeed.md
+      - Transformers & Generative AI:
+          - 01 - Intro: study-path/transformers/01-intro.md
+          - 02 - Getting Started: study-path/transformers/02-getting-started.md
+          - 03 - NLP Overview: study-path/transformers/03-nlp-overview.md
+          - 04 - Transformer Intro: study-path/transformers/04-transformer-intro.md
+          - 05 - Projects & Prompting: study-path/transformers/05-projects-prompting.md
+          - 06 - Using Transformers (Practical): study-path/transformers/06-using-transformers.md
+          - 07 - Reasoning with LLMs: study-path/transformers/07-reasoning.md
+          - 08 - Intro to LLMs: study-path/transformers/08-llm-intro.md
+          - 09 - Preparing LLMs: study-path/transformers/09-llm-prep.md
+          - 10 - Advanced LLM Training: study-path/transformers/10-llm-advanced.md
+          - 11 - Specialized LLM Training: study-path/transformers/11-llm-specialized.md
+          - 12 - Final Deployment: study-path/transformers/12-llm-deployment.md
+      - LLM Ops:
+          - 01 - Getting Started: study-path/llmops/01-getting-started.md
+          - 02 - Pre-Deployment Strategies: study-path/llmops/02-pre-deployment.md
+          - 03 - MLOps Foundations: study-path/llmops/03-mlops-foundations.md
+          - 04 - Advanced Model Deployment: study-path/llmops/04-advanced-deployment.md
+          - 05 - ML Inference Optimization: study-path/llmops/05-inference-optimization.md
+          - 06 - Economics of Inference: study-path/llmops/06-economics.md
+          - 07 - Cluster Management: study-path/llmops/07-cluster-management.md
+          - 08 - Real-Time API Deployment: study-path/llmops/08-real-time-api.md
   - Reference Hub:
       - Foundation:
           - NLP Overview: reference-hub/foundation/nlp-overview.md
@@ -42,5 +55,3 @@ nav:
           - Research Notes: reference-hub/knowledge/research.md
           - Tools & Libraries: reference-hub/knowledge/tools.md
           - Learning Links: reference-hub/knowledge/learning-links.md
-
-site_url: https://baskarm.github.io/generative-ai-study-hub/
