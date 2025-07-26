@@ -5,3 +5,25 @@
   height: 48px !important;
   max-height: 48px !important;
 }
+
+/* --- Horizontally align 2nd-level nav items --- */
+.md-nav__item.md-nav__item--nested > .md-nav__list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  /* Optional: style 3rd-level children inside dropdown */
+  .md-nav__item.md-nav__item--nested .md-nav__item--nested > .md-nav__list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: 2rem;
+  }
+  
+  /* Ensure long dropdowns don’t break the layout */
+  .md-nav__list {
+    max-width: 100%;
+    overflow-x: auto;
+  }
