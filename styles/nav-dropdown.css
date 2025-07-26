@@ -1,50 +1,49 @@
-/* ======================================================
-   Horizontal Dropdown Menu for MkDocs Material Theme
-   ====================================================== */
-
-/* Layout for 2nd-level nav items (e.g., under "Reference Hub") */
-.md-nav__item--nested > .md-nav__list {
-    display: flex;
+/* Top-level dropdown for 2nd-level nav */
+.md-tabs__dropdown {
+    display: flex !important;
     flex-direction: row;
     flex-wrap: wrap;
+    padding: 0.5rem 1rem;
     gap: 1.5rem;
-    padding-left: 1rem;
-    background-color: white;
+    max-width: 100%;
+    background: white;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    z-index: 100;
     position: absolute;
     top: 100%;
     left: 0;
+    z-index: 10;
     visibility: hidden;
     opacity: 0;
-    transition: opacity 0.2s ease, visibility 0.2s ease;
-    min-width: max-content;
+    transition: visibility 0s, opacity 0.2s ease-in-out;
   }
   
-  /* Show 2nd-level dropdown on hover of top-level tab */
-  .md-nav__item--nested:hover > .md-nav__list {
+  .md-tabs__item:hover > .md-tabs__dropdown {
     visibility: visible;
     opacity: 1;
   }
   
-  /* Optional: basic hover style for 2nd-level items */
-  .md-nav__list > .md-nav__item {
+  /* 3rd-level items inside 2nd-level */
+  .md-tabs__dropdown-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    margin-left: 1rem;
+    padding: 0.5rem;
+    background-color: #fafafa;
+    border: 1px solid #eee;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  /* Item styles */
+  .md-tabs__dropdown-item a {
     white-space: nowrap;
+    color: #333;
+    text-decoration: none;
     padding: 0.25rem 0.5rem;
   }
   
-  /* Layout for 3rd-level items (stacked vertically) */
-  .md-nav__item--nested .md-nav__item--nested > .md-nav__list {
-    display: flex;
-    flex-direction: column;
-    margin-left: 1.5rem;
-    padding: 0.5rem 1rem;
-    background: #f9f9f9;
-    box-shadow: inset 1px 0 0 #ddd;
-  }
-  
-  /* Prevent horizontal menu overflow */
-  .md-nav__list {
-    max-width: 100%;
-    overflow-x: auto;
+  .md-tabs__dropdown-item a:hover {
+    background-color: #eee;
+    border-radius: 4px;
   }
