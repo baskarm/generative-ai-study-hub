@@ -1,5 +1,8 @@
-/* Horizontally align 2nd-level nav items */
-.md-tabs__dropdown {
+/* ================================================
+   Horizontal Dropdown for 2nd-Level Tabs (on hover)
+   ================================================ */
+
+   .md-tabs__dropdown {
     display: flex !important;
     flex-direction: row;
     flex-wrap: wrap;
@@ -8,17 +11,16 @@
     max-width: 100%;
     background: white;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 10;
   }
   
-  /* Optional: align deeper levels */
+  /* Optional spacing between dropdown items */
   .md-tabs__dropdown .md-nav__item {
     margin-right: 1rem;
   }
-
-  .md-tabs__dropdown {
-    position: relative;
-  }
   
+  /* When dropdown content is present */
   .md-tabs__dropdown-content {
     display: none;
     position: absolute;
@@ -27,15 +29,17 @@
     z-index: 99;
     background-color: white;
     padding: 1rem;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     display: flex;
     gap: 1rem;
   }
   
+  /* Hover to reveal dropdown */
   .md-tabs__dropdown:hover .md-tabs__dropdown-content {
     display: flex;
   }
   
+  /* Dropdown item style */
   .md-tabs__dropdown-item {
     white-space: nowrap;
     padding: 0.5rem 1rem;
@@ -46,20 +50,25 @@
   .md-tabs__dropdown-item:hover {
     background-color: #eee;
   }
-  /* Top-level submenu layout */
-.md-nav__item--nested > .md-nav__list {
+  
+  /* =============================================
+     Nested Navigation Items (3rd-level and deeper)
+     ============================================= */
+  
+  /* 2nd level: group under Reference Hub, shown in horizontal layout */
+  .md-nav__item--nested > .md-nav__list {
     display: flex;
     flex-direction: row;
     gap: 1.5rem;
     padding-left: 1rem;
   }
   
-  /* Hover reveal nested children */
+  /* Show nested list on hover */
   .md-nav__item--nested:hover > .md-nav__list {
     display: flex !important;
   }
   
-  /* Optional: Sub-submenu styling */
+  /* 3rd level and deeper: stack vertically */
   .md-nav__item--nested .md-nav__item--nested > .md-nav__list {
     flex-direction: column;
     margin-left: 1rem;
