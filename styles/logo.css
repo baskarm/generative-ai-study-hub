@@ -1,6 +1,7 @@
-/* Force the Adhana logo across all tabs, including Home & Reference Hub */
-.md-header__button.md-logo img {
-    content: url("../images/adhana.png") !important;
-    height: 48px !important;
-    max-height: 48px !important;
-  }
+/* Force the Adhana logo across all pages (Home, Study Path, Reference Hub) */
+.md-header__button.md-logo img,
+.md-header__title .md-logo img {
+  content: url("../images/adhana.png") !important;
+  height: 48px !important;
+  max-height: 48px !important;
+}
