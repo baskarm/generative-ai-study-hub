@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://baskarm.github.io/generative-ai-study-hub/study-path/transformers/07-reasoning/">
+        <link rel="canonical" href="https://baskarm.github.io/generative-ai-study-hub/study-path/transformers/05-popular-transformer-models/">
       
       
-        <link rel="prev" href="../06-using-transformers/">
+        <link rel="prev" href="../04-transformer-intro/">
       
       
-        <link rel="next" href="../08-llm-intro/">
+        <link rel="next" href="../06-using-transformers/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Reasoning with LLMs - Generative AI Study Hub</title>
+        <title>5. Popular Transformer Models - Generative AI Study Hub</title>
       
     
     
@@ -73,6 +73,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#transformer-architectures-study-hub" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -102,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Reasoning with LLMs
+              5. Popular Transformer Models
             
           </span>
         </div>
@@ -446,7 +451,7 @@
   
   
   <span class="md-ellipsis">
-    Intro
+    1. Intro
     
   </span>
   
@@ -469,7 +474,7 @@
   
   
   <span class="md-ellipsis">
-    Getting Started
+    2. Getting Started
     
   </span>
   
@@ -492,7 +497,7 @@
   
   
   <span class="md-ellipsis">
-    NLP Overview
+    3. NLP Overview
     
   </span>
   
@@ -515,53 +520,7 @@
   
   
   <span class="md-ellipsis">
-    Transformer Intro
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../05-projects-prompting/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Projects & Prompting
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../06-using-transformers/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Using Transformers (Practical)
+    4. Transformer Intro
     
   </span>
   
@@ -585,19 +544,369 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    5. Popular Transformer Models
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
-    Reasoning with LLMs
+    5. Popular Transformer Models
     
   </span>
   
 
       </a>
       
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quick-navigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Quick Navigation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-bert-encoder-only-transformer-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. BERT: Encoder-Only Transformer Architecture
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. BERT: Encoder-Only Transformer Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#model-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model Overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Model Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-characteristics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Characteristics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pre-training-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pre-training Strategy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pre-training Strategy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#datasets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Datasets
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pre-training-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pre-training Objectives
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fine-tuning-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fine-tuning Applications
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fine-tuning Applications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#text-classification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Text Classification
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#named-entity-recognition-ner" class="md-nav__link">
+    <span class="md-ellipsis">
+      Named Entity Recognition (NER)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extractive-question-answering" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extractive Question Answering
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#semantic-similarity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Semantic Similarity
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bert-model-variants" class="md-nav__link">
+    <span class="md-ellipsis">
+      BERT Model Variants
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#latest-developments-as-of-2025" class="md-nav__link">
+    <span class="md-ellipsis">
+      Latest Developments (as of 2025)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-transformer-gpt-evolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Transformer &amp; GPT Evolution
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Transformer &amp; GPT Evolution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gpt-45-orion" class="md-nav__link">
+    <span class="md-ellipsis">
+      GPT-4.5 (“Orion”)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpt-41-family" class="md-nav__link">
+    <span class="md-ellipsis">
+      GPT-4.1 Family
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reasoning-models-o1-o3-mini-o4-mini" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reasoning Models (o1, o3-mini, o4-mini)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpt-5-expected-august-2025" class="md-nav__link">
+    <span class="md-ellipsis">
+      GPT-5 (Expected August 2025)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-it-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why It Matters
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-t5-text-to-text-transfer-transformer" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. T5: Text-To-Text Transfer Transformer
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. T5: Text-To-Text Transfer Transformer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#model-overview_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pre-training-c4-dataset-fill-in-the-blank-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pre-training: C4 Dataset + Fill-in-the-Blank Generation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Use Cases
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#product-evolution-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Product Evolution Table
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Takeaways
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-using-transformers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6. Using Transformers (Practical)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-real-world-scenario-llm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7. Real World Scenario with LLMs
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -615,7 +924,7 @@
   
   
   <span class="md-ellipsis">
-    Intro to LLMs
+    8. Intro to LLMs
     
   </span>
   
@@ -638,7 +947,7 @@
   
   
   <span class="md-ellipsis">
-    Preparing LLMs
+    9. Preparing LLMs
     
   </span>
   
@@ -661,7 +970,7 @@
   
   
   <span class="md-ellipsis">
-    Advanced LLM Training
+    10. Advanced LLM Training
     
   </span>
   
@@ -684,7 +993,7 @@
   
   
   <span class="md-ellipsis">
-    Specialized LLM Training
+    11. Specialized LLM Training
     
   </span>
   
@@ -707,7 +1016,7 @@
   
   
   <span class="md-ellipsis">
-    Final Deployment
+    12. Final Deployment
     
   </span>
   
@@ -804,7 +1113,7 @@
   
   
   <span class="md-ellipsis">
-    Getting Started
+    1. Getting Started
     
   </span>
   
@@ -827,7 +1136,7 @@
   
   
   <span class="md-ellipsis">
-    Pre-Deployment Strategies
+    2. Pre-Deployment Strategies
     
   </span>
   
@@ -850,7 +1159,7 @@
   
   
   <span class="md-ellipsis">
-    MLOps Foundations
+    3. MLOps Foundations
     
   </span>
   
@@ -873,7 +1182,7 @@
   
   
   <span class="md-ellipsis">
-    Advanced Model Deployment
+    4. Advanced Model Deployment
     
   </span>
   
@@ -896,7 +1205,7 @@
   
   
   <span class="md-ellipsis">
-    ML Inference Optimization
+    5. ML Inference Optimization
     
   </span>
   
@@ -919,7 +1228,7 @@
   
   
   <span class="md-ellipsis">
-    Economics of Inference
+    6. Economics of Inference
     
   </span>
   
@@ -942,7 +1251,7 @@
   
   
   <span class="md-ellipsis">
-    Cluster Management
+    7. Cluster Management
     
   </span>
   
@@ -965,7 +1274,7 @@
   
   
   <span class="md-ellipsis">
-    Real-Time API Deployment
+    8. Real-Time API Deployment
     
   </span>
   
@@ -1062,7 +1371,7 @@
   
   
   <span class="md-ellipsis">
-    Fundamentals & Lifecycle
+    1. Fundamentals & Lifecycle
     
   </span>
   
@@ -1085,7 +1394,7 @@
   
   
   <span class="md-ellipsis">
-    Systematic Error Analysis
+    2. Systematic Error Analysis
     
   </span>
   
@@ -1108,7 +1417,7 @@
   
   
   <span class="md-ellipsis">
-    Automated Evaluators
+    3. Automated Evaluators
     
   </span>
   
@@ -1131,7 +1440,7 @@
   
   
   <span class="md-ellipsis">
-    Architecture Strategies
+    4. Architecture Strategies
     
   </span>
   
@@ -1154,7 +1463,7 @@
   
   
   <span class="md-ellipsis">
-    Production Monitoring
+    5. Production Monitoring
     
   </span>
   
@@ -1177,7 +1486,7 @@
   
   
   <span class="md-ellipsis">
-    Human Review Systems
+    6. Human Review Systems
     
   </span>
   
@@ -1200,7 +1509,7 @@
   
   
   <span class="md-ellipsis">
-    Cost Optimization
+    7. Cost Optimization
     
   </span>
   
@@ -1223,7 +1532,7 @@
   
   
   <span class="md-ellipsis">
-    Final Wrap-Up
+    8. Final Wrap-Up
     
   </span>
   
@@ -2067,9 +2376,284 @@
 
 
 
-  <h1>Reasoning with LLMs</h1>
-
-
+<h1 id="transformer-architectures-study-hub">Transformer Architectures Study Hub</h1>
+<h2 id="quick-navigation">📌 Quick Navigation</h2>
+<ul>
+<li><a href="#1-bert-encoder-only-transformer-architecture">1. BERT: Encoder-Only Transformer Architecture</a></li>
+<li><a href="#2-transformer--gpt-evolution">2. Transformer &amp; GPT Evolution</a></li>
+<li><a href="#3-t5-text-to-text-transfer-transformer">3. T5: Text-To-Text Transfer Transformer</a></li>
+</ul>
+<hr />
+<h2 id="1-bert-encoder-only-transformer-architecture">1. BERT: Encoder-Only Transformer Architecture</h2>
+<p>BERT (Bidirectional Encoder Representations from Transformers) revolutionized NLP in 2018 by introducing a bidirectional, encoder-only architecture designed for deep contextual understanding of language. This section explores BERT’s structure, training strategy, practical applications, and the latest advancements in its ecosystem.</p>
+<h3 id="model-overview">Model Overview</h3>
+<h4 id="key-characteristics">Key Characteristics</h4>
+<ul>
+<li>
+<p><strong>Bidirectional</strong><br />
+  BERT reads text in both directions (left-to-right and right-to-left) simultaneously to capture full context.</p>
+</li>
+<li>
+<p><strong>Encoder-Only Architecture</strong><br />
+  Built entirely on stacked encoders with self-attention mechanisms.<br />
+  Optimized for understanding, not generating, text.</p>
+</li>
+<li>
+<p><strong>Representations</strong><br />
+  Learns dense vector embeddings that reflect token meaning in context.</p>
+</li>
+<li>
+<p><strong>Transformer-Based</strong><br />
+  Leverages the original transformer architecture—only the encoder side.</p>
+</li>
+</ul>
+<h3 id="pre-training-strategy">Pre-training Strategy</h3>
+<h4 id="datasets">Datasets</h4>
+<ul>
+<li>English Wikipedia  </li>
+<li>10,000+ unpublished English books  </li>
+<li>Total: Over 3 billion words</li>
+</ul>
+<h4 id="pre-training-objectives">Pre-training Objectives</h4>
+<ul>
+<li>
+<p><strong>Masked Language Modeling (MLM)</strong><br />
+  Randomly masks 15% of tokens; the model must predict them using surrounding context.<br />
+  Enables deep semantic and syntactic comprehension.</p>
+</li>
+<li>
+<p><strong>Next Sentence Prediction (NSP)</strong><br />
+  Trains BERT to classify whether one sentence follows another.<br />
+  Aids understanding of inter-sentence relationships.<br />
+  Later models (e.g., RoBERTa) removed this due to limited benefit.</p>
+</li>
+</ul>
+<h3 id="fine-tuning-applications">Fine-tuning Applications</h3>
+<h4 id="text-classification">Text Classification</h4>
+<ul>
+<li>Sentiment analysis, spam detection, topic categorization  </li>
+<li>Produces a single class label from the encoded text</li>
+</ul>
+<h4 id="named-entity-recognition-ner">Named Entity Recognition (NER)</h4>
+<ul>
+<li>Identifies token-level entities (e.g., people, dates, organizations)  </li>
+<li>BERT's contextual awareness improves accuracy in boundary detection</li>
+</ul>
+<h4 id="extractive-question-answering">Extractive Question Answering</h4>
+<ul>
+<li>Extracts answers directly from a provided context passage  </li>
+<li>Predicts <strong>start</strong> and <strong>end</strong> token positions  </li>
+<li>Used in customer service, document retrieval</li>
+</ul>
+<h4 id="semantic-similarity">Semantic Similarity</h4>
+<ul>
+<li>Produces embeddings for entire sentences or passages  </li>
+<li>Used in:</li>
+<li>Duplicate detection  </li>
+<li>Paraphrase recognition  </li>
+<li>Semantic search  </li>
+<li>Vector-based retrieval systems</li>
+</ul>
+<h3 id="bert-model-variants">BERT Model Variants</h3>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Parameters</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BERT-Base</td>
+<td>~110M</td>
+<td>12 layers, 12 heads, 768 hidden units</td>
+</tr>
+<tr>
+<td>BERT-Large</td>
+<td>~340M</td>
+<td>24 layers, 16 heads, 1024 hidden units</td>
+</tr>
+<tr>
+<td>DistilBERT</td>
+<td>~66M</td>
+<td>Lightweight version by Hugging Face</td>
+</tr>
+<tr>
+<td>RoBERTa</td>
+<td>~125M+</td>
+<td>No NSP, trained longer, dynamic masking (Meta)</td>
+</tr>
+<tr>
+<td>ALBERT</td>
+<td>~12M–223M</td>
+<td>Weight-sharing, efficient training (Google Research)</td>
+</tr>
+<tr>
+<td>DeBERTa</td>
+<td>Varies</td>
+<td>Disentangled attention and enhanced position embeddings (Microsoft)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="latest-developments-as-of-2025">Latest Developments (as of 2025)</h3>
+<ul>
+<li>BERT is foundational for retrieval-augmented generation (RAG) and embedding-based search systems.</li>
+<li><strong>Multilingual BERT (mBERT)</strong> supports 100+ languages.</li>
+<li>BERT encoders are commonly paired with large decoders like GPT-4o for hybrid retrieval-generation systems.</li>
+</ul>
+<p>➡️ <a href="#transformer-architectures-study-hub">Back to Top</a></p>
+<hr />
+<h2 id="2-transformer-gpt-evolution">2. Transformer &amp; GPT Evolution</h2>
+<h3 id="gpt-45-orion">GPT-4.5 (“Orion”)</h3>
+<ul>
+<li>Released: Feb 27, 2025</li>
+<li>Enhanced instruction-following, fewer hallucinations</li>
+<li>API &amp; ChatGPT Pro access</li>
+</ul>
+<h3 id="gpt-41-family">GPT-4.1 Family</h3>
+<ul>
+<li>Released: April 14, 2025</li>
+<li>Includes mini/nano variants supporting 1M-token context</li>
+<li>More efficient than GPT-4o</li>
+</ul>
+<h3 id="reasoning-models-o1-o3-mini-o4-mini">Reasoning Models (o1, o3-mini, o4-mini)</h3>
+<ul>
+<li>Optimized for logic, math, and science</li>
+<li>o3-mini and o4-mini include multimodal chain-of-thought support</li>
+<li>Ideal for autonomous agents and structured tool use</li>
+</ul>
+<h3 id="gpt-5-expected-august-2025">GPT-5 (Expected August 2025)</h3>
+<ul>
+<li>Will include reasoning from o3</li>
+<li>Multimodal + open access discussions ongoing</li>
+<li>Expected to set a new benchmark for general-purpose AI</li>
+</ul>
+<h3 id="why-it-matters">Why It Matters</h3>
+<ul>
+<li>Shift from scaling parameters to <strong>scaling reasoning</strong></li>
+<li>GPT-4.5/5 marks evolution toward <strong>modular, low-latency, high-accuracy models</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Category</th>
+<th>Architecture</th>
+<th>Strengths</th>
+<th>Use Cases</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPT‑4.5</td>
+<td>Instructional GPT</td>
+<td>Decoder-only</td>
+<td>Prompt-following, fewer hallucinations</td>
+<td>General NLP, coding, chatbots</td>
+</tr>
+<tr>
+<td>GPT‑4.1 mini</td>
+<td>Efficient GPT</td>
+<td>Decoder-only</td>
+<td>1M context, fast inference</td>
+<td>Coding, RAG</td>
+</tr>
+<tr>
+<td>o3-mini</td>
+<td>Reasoning LLM</td>
+<td>Decoder-only</td>
+<td>Logic + math + tool use</td>
+<td>Agents, science tasks</td>
+</tr>
+<tr>
+<td>GPT‑5</td>
+<td>Unified</td>
+<td>Multi-module</td>
+<td>Multimodal, reasoning-first</td>
+<td>Enterprise AI, general AI</td>
+</tr>
+</tbody>
+</table>
+<p>➡️ <a href="#transformer-architectures-study-hub">Back to Top</a></p>
+<hr />
+<h2 id="3-t5-text-to-text-transfer-transformer">3. T5: Text-To-Text Transfer Transformer</h2>
+<p>T5 reframes every NLP problem as a text-to-text task (e.g., input: “Translate English to German: How are you?” → output: “Wie geht es dir?”). This unified approach enables a wide range of applications across translation, QA, summarization, and more.</p>
+<h3 id="model-overview_1">Model Overview</h3>
+<ul>
+<li><strong>Encoder-decoder transformer</strong> with BERT-style encoding + GPT-style generation</li>
+<li>Flexible task control via text prefixes (e.g., “summarize:”, “translate:”)</li>
+<li>First model to fully embrace <strong>text-to-text multitask learning</strong></li>
+</ul>
+<h3 id="pre-training-c4-dataset-fill-in-the-blank-generation">Pre-training: C4 Dataset + Fill-in-the-Blank Generation</h3>
+<ul>
+<li>Uses a <strong>corrupt-and-reconstruct</strong> pre-training objective</li>
+<li>Learns both contextual understanding and sequence generation</li>
+<li>Trained on <strong>C4 (Colossal Cleaned Crawled Corpus)</strong></li>
+</ul>
+<h3 id="key-use-cases">Key Use Cases</h3>
+<ul>
+<li><strong>Translation</strong>: Understands bidirectional input, generates fluent target text</li>
+<li><strong>Summarization</strong>: Converts long passages into concise summaries</li>
+<li><strong>Question Answering</strong>: Context-aware, generative answers</li>
+<li><strong>Keyword Generation</strong>: Contextual phrase extraction</li>
+</ul>
+<h3 id="product-evolution-table">Product Evolution Table</h3>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Architecture</th>
+<th>Strengths</th>
+<th>Use Cases</th>
+<th>Developer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T5-Base</td>
+<td>Encoder-Decoder</td>
+<td>Multitask learning, flexible</td>
+<td>Translation, QA, summarization</td>
+<td>Google AI</td>
+</tr>
+<tr>
+<td>mT5</td>
+<td>Encoder-Decoder</td>
+<td>Multilingual model (100+ langs)</td>
+<td>Cross-lingual NLP</td>
+<td>Google AI</td>
+</tr>
+<tr>
+<td>FLAN-T5</td>
+<td>Enc-Dec + Tuning</td>
+<td>Instruction tuning</td>
+<td>Zero-shot &amp; few-shot NLP</td>
+<td>Google Research</td>
+</tr>
+<tr>
+<td>UL2</td>
+<td>Encoder-Decoder</td>
+<td>Supports multiple objective modes</td>
+<td>General-purpose transformer</td>
+<td>Google DeepMind</td>
+</tr>
+<tr>
+<td>Gemini 1.5</td>
+<td>Multimodal</td>
+<td>Unified vision + text + code</td>
+<td>Multimodal reasoning, generation</td>
+<td>Google DeepMind</td>
+</tr>
+</tbody>
+</table>
+<h3 id="takeaways">Takeaways</h3>
+<ul>
+<li>T5 demonstrates the power of a unified framework in solving diverse NLP tasks</li>
+<li>Its design has influenced <strong>instruction-tuned</strong> and <strong>multimodal</strong> model families</li>
+<li>Continues to power a range of Google products and NLP pipelines</li>
+</ul>
+<p>➡️ <a href="#transformer-architectures-study-hub">Back to Top</a></p>
 
 
 
@@ -2090,7 +2674,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 26, 2025 05:23:04 UTC">July 26, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 26, 2025 14:30:00 UTC">July 26, 2025</span>
   </span>
 
     

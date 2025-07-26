@@ -11,10 +11,10 @@
         <link rel="canonical" href="https://baskarm.github.io/generative-ai-study-hub/study-path/transformers/06-using-transformers/">
       
       
-        <link rel="prev" href="../05-projects-prompting/">
+        <link rel="prev" href="../05-popular-transformer-models/">
       
       
-        <link rel="next" href="../07-reasoning/">
+        <link rel="next" href="../07-real-world-scenario-llm/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Using Transformers (Practical) - Generative AI Study Hub</title>
+        <title>6. Using Transformers (Practical) - Generative AI Study Hub</title>
       
     
     
@@ -73,6 +73,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#quick-navigation" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -102,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Using Transformers (Practical)
+              6. Using Transformers (Practical)
             
           </span>
         </div>
@@ -446,7 +451,7 @@
   
   
   <span class="md-ellipsis">
-    Intro
+    1. Intro
     
   </span>
   
@@ -469,7 +474,7 @@
   
   
   <span class="md-ellipsis">
-    Getting Started
+    2. Getting Started
     
   </span>
   
@@ -492,7 +497,7 @@
   
   
   <span class="md-ellipsis">
-    NLP Overview
+    3. NLP Overview
     
   </span>
   
@@ -515,7 +520,7 @@
   
   
   <span class="md-ellipsis">
-    Transformer Intro
+    4. Transformer Intro
     
   </span>
   
@@ -533,12 +538,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../05-projects-prompting/" class="md-nav__link">
+      <a href="../05-popular-transformer-models/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Projects & Prompting
+    5. Popular Transformer Models
     
   </span>
   
@@ -562,18 +567,259 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    6. Using Transformers (Practical)
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
-    Using Transformers (Practical)
+    6. Using Transformers (Practical)
     
   </span>
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#course-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Course Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Concepts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transformer-engineering-focus" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transformer Engineering Focus
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tokenizer-and-embeddings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tokenizer and Embeddings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tokenizer and Embeddings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tokenization-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tokenization Pipeline
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-it-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try It Yourself
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Try It Yourself">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#embeddings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Embeddings
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-it-yourself_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try It Yourself
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Try It Yourself">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#semantic-distance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Semantic Distance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masked-language-modeling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Masked Language Modeling
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Masked Language Modeling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-it-yourself_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try It Yourself
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#semantic-search-engine" class="md-nav__link">
+    <span class="md-ellipsis">
+      Semantic Search Engine
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Semantic Search Engine">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#goal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Goal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tools-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tools &amp; Dataset
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#process" class="md-nav__link">
+    <span class="md-ellipsis">
+      Process
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-queries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Queries
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-it-yourself_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Try It Yourself
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-evolution-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model Evolution Table
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -587,12 +833,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../07-reasoning/" class="md-nav__link">
+      <a href="../07-real-world-scenario-llm/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Reasoning with LLMs
+    7. Real World Scenario with LLMs
     
   </span>
   
@@ -615,7 +861,7 @@
   
   
   <span class="md-ellipsis">
-    Intro to LLMs
+    8. Intro to LLMs
     
   </span>
   
@@ -638,7 +884,7 @@
   
   
   <span class="md-ellipsis">
-    Preparing LLMs
+    9. Preparing LLMs
     
   </span>
   
@@ -661,7 +907,7 @@
   
   
   <span class="md-ellipsis">
-    Advanced LLM Training
+    10. Advanced LLM Training
     
   </span>
   
@@ -684,7 +930,7 @@
   
   
   <span class="md-ellipsis">
-    Specialized LLM Training
+    11. Specialized LLM Training
     
   </span>
   
@@ -707,7 +953,7 @@
   
   
   <span class="md-ellipsis">
-    Final Deployment
+    12. Final Deployment
     
   </span>
   
@@ -804,7 +1050,7 @@
   
   
   <span class="md-ellipsis">
-    Getting Started
+    1. Getting Started
     
   </span>
   
@@ -827,7 +1073,7 @@
   
   
   <span class="md-ellipsis">
-    Pre-Deployment Strategies
+    2. Pre-Deployment Strategies
     
   </span>
   
@@ -850,7 +1096,7 @@
   
   
   <span class="md-ellipsis">
-    MLOps Foundations
+    3. MLOps Foundations
     
   </span>
   
@@ -873,7 +1119,7 @@
   
   
   <span class="md-ellipsis">
-    Advanced Model Deployment
+    4. Advanced Model Deployment
     
   </span>
   
@@ -896,7 +1142,7 @@
   
   
   <span class="md-ellipsis">
-    ML Inference Optimization
+    5. ML Inference Optimization
     
   </span>
   
@@ -919,7 +1165,7 @@
   
   
   <span class="md-ellipsis">
-    Economics of Inference
+    6. Economics of Inference
     
   </span>
   
@@ -942,7 +1188,7 @@
   
   
   <span class="md-ellipsis">
-    Cluster Management
+    7. Cluster Management
     
   </span>
   
@@ -965,7 +1211,7 @@
   
   
   <span class="md-ellipsis">
-    Real-Time API Deployment
+    8. Real-Time API Deployment
     
   </span>
   
@@ -1062,7 +1308,7 @@
   
   
   <span class="md-ellipsis">
-    Fundamentals & Lifecycle
+    1. Fundamentals & Lifecycle
     
   </span>
   
@@ -1085,7 +1331,7 @@
   
   
   <span class="md-ellipsis">
-    Systematic Error Analysis
+    2. Systematic Error Analysis
     
   </span>
   
@@ -1108,7 +1354,7 @@
   
   
   <span class="md-ellipsis">
-    Automated Evaluators
+    3. Automated Evaluators
     
   </span>
   
@@ -1131,7 +1377,7 @@
   
   
   <span class="md-ellipsis">
-    Architecture Strategies
+    4. Architecture Strategies
     
   </span>
   
@@ -1154,7 +1400,7 @@
   
   
   <span class="md-ellipsis">
-    Production Monitoring
+    5. Production Monitoring
     
   </span>
   
@@ -1177,7 +1423,7 @@
   
   
   <span class="md-ellipsis">
-    Human Review Systems
+    6. Human Review Systems
     
   </span>
   
@@ -1200,7 +1446,7 @@
   
   
   <span class="md-ellipsis">
-    Cost Optimization
+    7. Cost Optimization
     
   </span>
   
@@ -1223,7 +1469,7 @@
   
   
   <span class="md-ellipsis">
-    Final Wrap-Up
+    8. Final Wrap-Up
     
   </span>
   
@@ -2067,9 +2313,168 @@
 
 
 
-  <h1>Using Transformers (Practical)</h1>
-
-
+<h1 id="quick-navigation">📌 Quick Navigation</h1>
+<ul>
+<li><a href="#course-overview">Course Overview</a></li>
+<li><a href="#key-concepts">Key Concepts</a></li>
+<li><a href="#tokenizer-and-embeddings">Tokenizer and Embeddings</a></li>
+<li><a href="#masked-language-modeling">Masked Language Modeling</a></li>
+<li><a href="#semantic-search-engine">Semantic Search Engine</a></li>
+<li><a href="#model-evolution-table">Model Evolution Table</a></li>
+</ul>
+<hr />
+<h2 id="course-overview">Course Overview</h2>
+<p>This section focuses on transitioning from theoretical knowledge of transformer models to their practical implementation and engineering components, emphasizing real-world applications such as semantic search and embedding usage.</p>
+<ul>
+<li>Prepares learners to apply transformer embeddings for NLP tasks</li>
+<li>Covers tokenization, embeddings, model internals, and downstream tasks</li>
+<li>Includes practical hands-on coding with Hugging Face Transformers and PyTorch</li>
+</ul>
+<p><a href="#quick-navigation">Back to Top</a></p>
+<hr />
+<h2 id="key-concepts">Key Concepts</h2>
+<h3 id="transformer-engineering-focus">Transformer Engineering Focus</h3>
+<ul>
+<li><strong>Embeddings</strong>: Represent words/sentences as dense vectors for downstream processing</li>
+<li><strong>Tokenization</strong>: Converts raw text to token IDs; includes handling special tokens</li>
+<li><strong>Attention Mechanism</strong>: Key to contextual representation in transformers</li>
+<li><strong>Model Inputs</strong>: Includes token IDs, attention masks, and token type IDs</li>
+<li><strong>Sentence Transformers</strong>: Fine-tuned models for capturing sentence-level semantics</li>
+</ul>
+<p><a href="#quick-navigation">Back to Top</a></p>
+<hr />
+<h2 id="tokenizer-and-embeddings">Tokenizer and Embeddings</h2>
+<h3 id="tokenization-pipeline">Tokenization Pipeline</h3>
+<ul>
+<li>Tokenizers split sentences into subword tokens</li>
+<li>Maintains a vocabulary of ~30k+ tokens</li>
+<li>Returns token IDs, attention masks, and token type IDs</li>
+<li>Important to use model-specific tokenizers for consistency</li>
+</ul>
+<h2 id="try-it-yourself">Try It Yourself</h2>
+<p>Explore and run the notebook interactively using Google Colab:</p>
+<p><a href="https://colab.research.google.com/drive/1wg_2Q9UkVDOhL7g9bdB6CvE_ww1UZ8WM?usp=sharing">Open the Notebook in Colab</a></p>
+<p><a href="https://colab.research.google.com/drive/1wg_2Q9UkVDOhL7g9bdB6CvE_ww1UZ8WM?usp=sharing"><img alt="Open in Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
+<h3 id="embeddings">Embeddings</h3>
+<ul>
+<li>Token IDs are converted to high-dimensional vectors</li>
+<li>Two key outputs:</li>
+<li><strong>Last Hidden State</strong>: Embeddings for individual tokens (shape: seq_len × hidden_dim)</li>
+<li><strong>Pooled Output</strong>: Embedding for the entire sequence, used in classification</li>
+</ul>
+<h2 id="try-it-yourself_1">Try It Yourself</h2>
+<p>You can run and explore the notebook directly in Google Colab:</p>
+<p><a href="https://colab.research.google.com/drive/1bQLidcWx-dj8SH1bCOfzB6wUpl2bso4l?usp=sharing">Open the Notebook in Colab</a></p>
+<p><a href="https://colab.research.google.com/drive/1bQLidcWx-dj8SH1bCOfzB6wUpl2bso4l?usp=sharing"><img alt="Open in Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
+<p><a href="#quick-navigation">Back to Top</a></p>
+<h3 id="semantic-distance">Semantic Distance</h3>
+<ul>
+<li>Embeddings compared using cosine similarity</li>
+<li>Allows words with different meanings (e.g., "fly") to be distinguished contextually</li>
+</ul>
+<hr />
+<h2 id="masked-language-modeling">Masked Language Modeling</h2>
+<ul>
+<li>Pretraining task for models like BERT</li>
+<li>Random tokens replaced with <code>[MASK]</code> and predicted by the model</li>
+<li>Output logits converted to probabilities via softmax</li>
+<li>Used to help the model build a strong language understanding foundation</li>
+</ul>
+<h3 id="example">Example</h3>
+<ul>
+<li>Input: <code>"I want to [MASK] pizza for tonight"</code></li>
+<li>Output: <code>"have"</code>, <code>"get"</code>, <code>"eat"</code>, <code>"make"</code>, <code>"order"</code> as top predictions</li>
+</ul>
+<h2 id="try-it-yourself_2">Try It Yourself</h2>
+<p>You can experiment with the code by opening the notebook in Google Colab:</p>
+<p><a href="https://colab.research.google.com/drive/1XMpEYowE4RsupsSN3m0lw4Vn1G-TgGgD?usp=sharing">Open the Notebook in Colab</a></p>
+<p><a href="https://colab.research.google.com/drive/1XMpEYowE4RsupsSN3m0lw4Vn1G-TgGgD?usp=sharing"><img alt="Open in Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
+<p><a href="#quick-navigation">Back to Top</a></p>
+<hr />
+<h2 id="semantic-search-engine">Semantic Search Engine</h2>
+<h3 id="goal">Goal</h3>
+<p>Build a semantic search engine that finds the most relevant document to a query based on meaning, not keyword match.</p>
+<h3 id="tools-dataset">Tools &amp; Dataset</h3>
+<ul>
+<li><strong>Dataset</strong>: Multi-News (2000 article summaries)</li>
+<li><strong>Model</strong>: SentenceTransformer for lightweight sentence embeddings (384-dim)</li>
+<li><strong>Libraries</strong>: Hugging Face Transformers, PyTorch, Pandas</li>
+</ul>
+<h3 id="process">Process</h3>
+<ul>
+<li>Embed all documents once</li>
+<li>Embed user’s query</li>
+<li>Compute cosine similarity between query and all document embeddings</li>
+<li>Retrieve top-k relevant results using <code>torch.topk</code></li>
+</ul>
+<h3 id="example-queries">Example Queries</h3>
+<ul>
+<li>"Artificial Intelligence": returned AI-related articles</li>
+<li>"Natural Disasters": returned disaster-related summaries</li>
+<li>"Law Enforcement", "Politics": worked as expected</li>
+</ul>
+<h2 id="try-it-yourself_3">Try It Yourself</h2>
+<p>Give it a try by opening the interactive Google Colab notebook below:</p>
+<p><a href="https://colab.research.google.com/drive/1nYoIMe3JcRfVoO-VEEOE_iWLvfVXIbir?usp=sharing">Open the Notebook in Colab</a></p>
+<p><a href="https://colab.research.google.com/drive/1nYoIMe3JcRfVoO-VEEOE_iWLvfVXIbir?usp=sharing"><img alt="Open in Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
+<p><a href="#quick-navigation">Back to Top</a></p>
+<hr />
+<h2 id="model-evolution-table">Model Evolution Table</h2>
+<table>
+<thead>
+<tr>
+<th>Model Name</th>
+<th>Category</th>
+<th>Architecture</th>
+<th>Strengths</th>
+<th>Ideal Use Cases</th>
+<th>Latest Version Info</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BERT</td>
+<td>Encoder-only</td>
+<td>Transformer</td>
+<td>Bidirectional context, strong understanding</td>
+<td>Text classification, Q&amp;A, embedding generation</td>
+<td>BERT-Base / BERT-Large</td>
+</tr>
+<tr>
+<td>GPT</td>
+<td>Decoder-only</td>
+<td>Transformer</td>
+<td>Text generation, instruction following</td>
+<td>Chatbots, creative writing, code generation</td>
+<td>GPT-4o (June 2024)</td>
+</tr>
+<tr>
+<td>T5</td>
+<td>Encoder-Decoder</td>
+<td>Transformer</td>
+<td>Unified text-to-text architecture</td>
+<td>Translation, summarization, Q&amp;A</td>
+<td>T5.1.1, Flan-T5</td>
+</tr>
+<tr>
+<td>Gemini</td>
+<td>Multi-modal</td>
+<td>Transformer + Vision + Memory</td>
+<td>Text + image processing, powerful LLM+VLM hybrid</td>
+<td>Multi-modal tasks, agentic reasoning</td>
+<td>Gemini 1.5 (June 2025)</td>
+</tr>
+<tr>
+<td>SentenceTransformer</td>
+<td>Encoder-only</td>
+<td>Siamese / Bi-encoder Transformer</td>
+<td>Sentence similarity, semantic search</td>
+<td>Embedding generation, retrieval, clustering</td>
+<td><code>all-MiniLM-L6-v2</code></td>
+</tr>
+</tbody>
+</table>
+<p><a href="#quick-navigation">Back to Top</a></p>
 
 
 

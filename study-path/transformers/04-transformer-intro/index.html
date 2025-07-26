@@ -14,7 +14,7 @@
         <link rel="prev" href="../03-nlp-overview/">
       
       
-        <link rel="next" href="../05-projects-prompting/">
+        <link rel="next" href="../05-popular-transformer-models/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Transformer Intro - Generative AI Study Hub</title>
+        <title>4. Transformer Intro - Generative AI Study Hub</title>
       
     
     
@@ -73,6 +73,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#transformer-fundamentals" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -102,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Transformer Intro
+              4. Transformer Intro
             
           </span>
         </div>
@@ -446,7 +451,7 @@
   
   
   <span class="md-ellipsis">
-    Intro
+    1. Intro
     
   </span>
   
@@ -469,7 +474,7 @@
   
   
   <span class="md-ellipsis">
-    Getting Started
+    2. Getting Started
     
   </span>
   
@@ -492,7 +497,7 @@
   
   
   <span class="md-ellipsis">
-    NLP Overview
+    3. NLP Overview
     
   </span>
   
@@ -516,18 +521,331 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    4. Transformer Intro
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
-    Transformer Intro
+    4. Transformer Intro
     
   </span>
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quick-navigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Quick Navigation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-transformer-architecture-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Transformer Architecture Overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Transformer Architecture Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#origins-and-significance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Origins and Significance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#core-components-of-transformer-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Components of Transformer Architecture
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Components of Transformer Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#encoder-decoder-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Encoder-Decoder Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attention-mechanisms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attention Mechanisms
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#positional-encoding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Positional Encoding
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#feed-forward-network-layer-normalization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Feed-Forward Network &amp; Layer Normalization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#full-encoder-and-decoder-block" class="md-nav__link">
+    <span class="md-ellipsis">
+      Full Encoder and Decoder Block
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#real-world-application-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Real-World Application Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-transformer-training-paradigm-pre-training-and-fine-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Transformer Training Paradigm: Pre-training and Fine-tuning
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Transformer Training Paradigm: Pre-training and Fine-tuning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#training-structure-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Training Structure Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pre-training-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pre-training Phase
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fine-tuning-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fine-tuning Phase
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#combined-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Combined Workflow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#real-world-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Real-world Considerations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-takeaways_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-tokenization-and-embeddings-in-transformer-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Tokenization and Embeddings in Transformer Models
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Tokenization and Embeddings in Transformer Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tokenization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tokenization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tokenization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      Purpose
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#types-of-tokenization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Types of Tokenization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#embeddings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Embeddings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Embeddings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#purpose_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Purpose
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Concepts
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -541,12 +859,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../05-projects-prompting/" class="md-nav__link">
+      <a href="../05-popular-transformer-models/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Projects & Prompting
+    5. Popular Transformer Models
     
   </span>
   
@@ -569,7 +887,7 @@
   
   
   <span class="md-ellipsis">
-    Using Transformers (Practical)
+    6. Using Transformers (Practical)
     
   </span>
   
@@ -587,12 +905,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../07-reasoning/" class="md-nav__link">
+      <a href="../07-real-world-scenario-llm/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Reasoning with LLMs
+    7. Real World Scenario with LLMs
     
   </span>
   
@@ -615,7 +933,7 @@
   
   
   <span class="md-ellipsis">
-    Intro to LLMs
+    8. Intro to LLMs
     
   </span>
   
@@ -638,7 +956,7 @@
   
   
   <span class="md-ellipsis">
-    Preparing LLMs
+    9. Preparing LLMs
     
   </span>
   
@@ -661,7 +979,7 @@
   
   
   <span class="md-ellipsis">
-    Advanced LLM Training
+    10. Advanced LLM Training
     
   </span>
   
@@ -684,7 +1002,7 @@
   
   
   <span class="md-ellipsis">
-    Specialized LLM Training
+    11. Specialized LLM Training
     
   </span>
   
@@ -707,7 +1025,7 @@
   
   
   <span class="md-ellipsis">
-    Final Deployment
+    12. Final Deployment
     
   </span>
   
@@ -804,7 +1122,7 @@
   
   
   <span class="md-ellipsis">
-    Getting Started
+    1. Getting Started
     
   </span>
   
@@ -827,7 +1145,7 @@
   
   
   <span class="md-ellipsis">
-    Pre-Deployment Strategies
+    2. Pre-Deployment Strategies
     
   </span>
   
@@ -850,7 +1168,7 @@
   
   
   <span class="md-ellipsis">
-    MLOps Foundations
+    3. MLOps Foundations
     
   </span>
   
@@ -873,7 +1191,7 @@
   
   
   <span class="md-ellipsis">
-    Advanced Model Deployment
+    4. Advanced Model Deployment
     
   </span>
   
@@ -896,7 +1214,7 @@
   
   
   <span class="md-ellipsis">
-    ML Inference Optimization
+    5. ML Inference Optimization
     
   </span>
   
@@ -919,7 +1237,7 @@
   
   
   <span class="md-ellipsis">
-    Economics of Inference
+    6. Economics of Inference
     
   </span>
   
@@ -942,7 +1260,7 @@
   
   
   <span class="md-ellipsis">
-    Cluster Management
+    7. Cluster Management
     
   </span>
   
@@ -965,7 +1283,7 @@
   
   
   <span class="md-ellipsis">
-    Real-Time API Deployment
+    8. Real-Time API Deployment
     
   </span>
   
@@ -1062,7 +1380,7 @@
   
   
   <span class="md-ellipsis">
-    Fundamentals & Lifecycle
+    1. Fundamentals & Lifecycle
     
   </span>
   
@@ -1085,7 +1403,7 @@
   
   
   <span class="md-ellipsis">
-    Systematic Error Analysis
+    2. Systematic Error Analysis
     
   </span>
   
@@ -1108,7 +1426,7 @@
   
   
   <span class="md-ellipsis">
-    Automated Evaluators
+    3. Automated Evaluators
     
   </span>
   
@@ -1131,7 +1449,7 @@
   
   
   <span class="md-ellipsis">
-    Architecture Strategies
+    4. Architecture Strategies
     
   </span>
   
@@ -1154,7 +1472,7 @@
   
   
   <span class="md-ellipsis">
-    Production Monitoring
+    5. Production Monitoring
     
   </span>
   
@@ -1177,7 +1495,7 @@
   
   
   <span class="md-ellipsis">
-    Human Review Systems
+    6. Human Review Systems
     
   </span>
   
@@ -1200,7 +1518,7 @@
   
   
   <span class="md-ellipsis">
-    Cost Optimization
+    7. Cost Optimization
     
   </span>
   
@@ -1223,7 +1541,7 @@
   
   
   <span class="md-ellipsis">
-    Final Wrap-Up
+    8. Final Wrap-Up
     
   </span>
   
@@ -2067,9 +2385,147 @@
 
 
 
-  <h1>Transformer Intro</h1>
-
-
+<h1 id="transformer-fundamentals">Transformer Fundamentals</h1>
+<h2 id="quick-navigation">📌 Quick Navigation</h2>
+<ul>
+<li><a href="#1-transformer-architecture-overview">1. Transformer Architecture Overview</a></li>
+<li><a href="#2-transformer-training-paradigm-pre-training-and-fine-tuning">2. Transformer Training Paradigm: Pre-training and Fine-tuning</a></li>
+<li><a href="#3-tokenization-and-embeddings-in-transformer-models">3. Tokenization and Embeddings in Transformer Models</a></li>
+</ul>
+<hr />
+<h2 id="1-transformer-architecture-overview">1. Transformer Architecture Overview</h2>
+<p>This lesson introduces the transformer model architecture, emphasizing its structural innovations, key mechanisms, and how it revolutionized NLP by overcoming the limitations of RNNs and LSTMs.</p>
+<h3 id="origins-and-significance">Origins and Significance</h3>
+<ul>
+<li>Introduced in 2017 via the paper <em>"Attention Is All You Need"</em></li>
+<li>Replaced sequential RNN/LSTM processing with fully parallel architecture</li>
+<li>Solved long-range dependency issues and improved training speed</li>
+<li>Enabled large-scale model training and breakthroughs in language understanding</li>
+</ul>
+<h3 id="core-components-of-transformer-architecture">Core Components of Transformer Architecture</h3>
+<h4 id="encoder-decoder-structure">Encoder-Decoder Structure</h4>
+<ul>
+<li><strong>Encoder</strong>: Converts input text into continuous vector representations capturing context and relationships</li>
+<li><strong>Decoder</strong>: Generates output text from encoder’s processed information</li>
+<li>Enables tasks like translation, summarization, and question answering</li>
+</ul>
+<h4 id="attention-mechanisms">Attention Mechanisms</h4>
+<ul>
+<li><strong>Self-Attention</strong>: Weighs each word relative to others to build context-aware representations</li>
+<li><strong>Scaled Dot-Product Attention</strong>: Computes dot products, scales scores, and applies softmax</li>
+<li><strong>Multi-Head Attention</strong>: Uses multiple heads to capture diverse semantic/syntactic patterns</li>
+</ul>
+<h3 id="positional-encoding">Positional Encoding</h3>
+<ul>
+<li>Compensates for lack of inherent word order in attention-only models</li>
+<li>Adds position-based signals to token embeddings</li>
+</ul>
+<h3 id="feed-forward-network-layer-normalization">Feed-Forward Network &amp; Layer Normalization</h3>
+<ul>
+<li><strong>Feed-Forward Network</strong>: Applies non-linear transformations to extract high-level features</li>
+<li><strong>Layer Normalization</strong>: Stabilizes training by normalizing outputs between layers</li>
+</ul>
+<h3 id="full-encoder-and-decoder-block">Full Encoder and Decoder Block</h3>
+<ul>
+<li>Composed of stacked layers with:</li>
+<li>Multi-head attention</li>
+<li>Feed-forward networks</li>
+<li>Layer normalization</li>
+<li><strong>Decoder</strong> includes additional encoder-decoder attention to align output generation</li>
+</ul>
+<h3 id="real-world-application-example">Real-World Application Example</h3>
+<p><strong>Abstractive Question Answering</strong></p>
+<ul>
+<li><strong>Input</strong>: Paragraph + Question</li>
+<li><strong>Encoder</strong>: Processes both into contextual embeddings</li>
+<li><strong>Decoder</strong>: Generates an answer from the learned representation</li>
+</ul>
+<h3 id="key-takeaways">Key Takeaways</h3>
+<ul>
+<li>Transformers enabled scalable, parallel NLP processing</li>
+<li>Encoder-decoder architecture allows diverse tasks</li>
+<li>Attention mechanisms are key to understanding global context</li>
+</ul>
+<p>➡️ <a href="#transformer-fundamentals">Back to Top</a></p>
+<hr />
+<h2 id="2-transformer-training-paradigm-pre-training-and-fine-tuning">2. Transformer Training Paradigm: Pre-training and Fine-tuning</h2>
+<p>This lesson outlines the two-phase training process of transformer models—pre-training and fine-tuning—contrasting it with traditional ML workflows.</p>
+<h3 id="training-structure-overview">Training Structure Overview</h3>
+<ul>
+<li><strong>Pre-training</strong>: General language learning from large unlabeled datasets</li>
+<li><strong>Fine-tuning</strong>: Task-specific adaptation using labeled datasets</li>
+</ul>
+<h3 id="pre-training-phase">Pre-training Phase</h3>
+<ul>
+<li>Learns grammar, context, word relationships, and long-range dependencies</li>
+<li>Massive-scale unsupervised training</li>
+<li>🔁 <strong>Analogy</strong>: Like learning music theory before mastering a genre</li>
+</ul>
+<h3 id="fine-tuning-phase">Fine-tuning Phase</h3>
+<ul>
+<li>Adapts pre-trained models to tasks like NER, translation, QA, etc.</li>
+<li>Requires smaller supervised datasets</li>
+<li>Leverages <strong>transfer learning</strong></li>
+<li>🔁 <strong>Analogy</strong>: Like a trained pianist specializing in jazz</li>
+</ul>
+<h3 id="combined-workflow">Combined Workflow</h3>
+<ol>
+<li><strong>Step 1: Pre-training</strong></li>
+<li>Random initialization → trained on general data</li>
+<li><strong>Step 2: Fine-tuning</strong></li>
+<li>Task-specific data → adapted for downstream performance</li>
+</ol>
+<h3 id="real-world-considerations">Real-world Considerations</h3>
+<ul>
+<li>Pre-training requires huge compute and data (done by orgs like Google, OpenAI)</li>
+<li>Most use <strong>pre-trained</strong> models and <strong>fine-tune</strong></li>
+<li>Full pre-training is rare unless:</li>
+<li>You work with proprietary, underrepresented, or specialized domains (e.g., legal, clinical)</li>
+</ul>
+<h3 id="key-takeaways_1">Key Takeaways</h3>
+<ul>
+<li>Pre-training + fine-tuning is the standard approach in NLP</li>
+<li>Enables rapid model deployment with high performance</li>
+<li>Specialized domains may benefit from custom pre-training</li>
+</ul>
+<p>➡️ <a href="#transformer-fundamentals">Back to Top</a></p>
+<hr />
+<h2 id="3-tokenization-and-embeddings-in-transformer-models">3. Tokenization and Embeddings in Transformer Models</h2>
+<p>This lesson covers how transformers process raw text into vector representations using tokenization and embeddings.</p>
+<h3 id="tokenization">Tokenization</h3>
+<h4 id="purpose">Purpose</h4>
+<ul>
+<li>Breaks text into smaller units called <strong>tokens</strong></li>
+<li>Translates natural language into numerical input (token IDs)</li>
+</ul>
+<h4 id="types-of-tokenization">Types of Tokenization</h4>
+<ul>
+<li><strong>Word-level</strong>: One token per word; suffers from OOV (out-of-vocabulary) issues</li>
+<li><strong>Character-level</strong>: Every character is a token; leads to longer sequences</li>
+<li><strong>Subword-level</strong> (common): Breaks unknown words into known parts (e.g., Byte-Pair Encoding)</li>
+</ul>
+<h4 id="workflow">Workflow</h4>
+<ol>
+<li>Breaks text into tokens</li>
+<li>Maps tokens to IDs using a predefined vocabulary</li>
+<li>Feeds IDs into the transformer model</li>
+</ol>
+<h3 id="embeddings">Embeddings</h3>
+<h4 id="purpose_1">Purpose</h4>
+<ul>
+<li>Convert token IDs into high-dimensional dense vectors</li>
+<li>Capture <strong>meaning</strong> and <strong>contextual usage</strong> of tokens</li>
+</ul>
+<h4 id="key-concepts">Key Concepts</h4>
+<ul>
+<li>Embeddings are context-aware (e.g., "bank" in finance vs. riverbank)</li>
+<li>Contextual embeddings change based on surrounding text</li>
+<li>Learned during <strong>pre-training</strong></li>
+</ul>
+<h4 id="example">Example</h4>
+<p>```text
+Sentence 1: She picked a rose.
+Sentence 2: The sun rose early.</p>
 
 
 
