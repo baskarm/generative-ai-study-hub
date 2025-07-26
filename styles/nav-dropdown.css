@@ -46,3 +46,21 @@
   .md-tabs__dropdown-item:hover {
     background-color: #eee;
   }
+  /* Top-level submenu layout */
+.md-nav__item--nested > .md-nav__list {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    padding-left: 1rem;
+  }
+  
+  /* Hover reveal nested children */
+  .md-nav__item--nested:hover > .md-nav__list {
+    display: flex !important;
+  }
+  
+  /* Optional: Sub-submenu styling */
+  .md-nav__item--nested .md-nav__item--nested > .md-nav__list {
+    flex-direction: column;
+    margin-left: 1rem;
+  }

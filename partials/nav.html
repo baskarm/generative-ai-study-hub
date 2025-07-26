@@ -1,19 +1,29 @@
-{% set tabs = config.nav %}
-<nav class="md-tabs" aria-label="Tabs">
-  <div class="md-tabs__list">
-    {% for tab in tabs %}
-      {% if tab.children %}
-        <div class="md-tabs__dropdown">
-          <a class="md-tabs__link" href="{{ tab.link | url }}">{{ tab.title }}</a>
-          <div class="md-tabs__dropdown-content">
-            {% for child in tab.children %}
-              <a class="md-tabs__dropdown-item" href="{{ child.link | url }}">{{ child.title }}</a>
-            {% endfor %}
+<nav class="md-tabs" aria-label="Main navigation">
+    <div class="md-tabs__list">
+      {% for nav_item in config.nav %}
+        {% if nav_item.children %}
+          <div class="md-tabs__dropdown">
+            <a class="md-tabs__link" href="{{ nav_item.link | url }}">{{ nav_item.title }}</a>
+            <div class="md-tabs__dropdown-content">
+              {% for child in nav_item.children %}
+                {% if child.children %}
+                  <div class="md-tabs__subdropdown">
+                    <a class="md-tabs__dropdown-item parent" href="{{ child.link | url }}">{{ child.title }}</a>
+                    <div class="md-tabs__subdropdown-content">
+                      {% for sub in child.children %}
+                        <a class="md-tabs__dropdown-item" href="{{ sub.link | url }}">{{ sub.title }}</a>
+                      {% endfor %}
+                    </div>
+                  </div>
+                {% else %}
+                  <a class="md-tabs__dropdown-item" href="{{ child.link | url }}">{{ child.title }}</a>
+                {% endif %}
+              {% endfor %}
+            </div>
           </div>
-        </div>
-      {% else %}
-        <a class="md-tabs__link" href="{{ tab.link | url }}">{{ tab.title }}</a>
-      {% endif %}
-    {% endfor %}
-  </div>
-</nav>
+        {% else %}
+          <a class="md-tabs__link" href="{{ nav_item.link | url }}">{{ nav_item.title }}</a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </nav>
