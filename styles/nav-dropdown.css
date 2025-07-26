@@ -1,49 +1,49 @@
-/* Top-level dropdown for 2nd-level nav */
-.md-tabs__dropdown {
-    display: flex !important;
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding: 0.5rem 1rem;
-    gap: 1.5rem;
-    max-width: 100%;
-    background: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+.md-tabs__item {
+    position: relative;
+  }
+  
+  /* Hide dropdown by default */
+  .md-tabs__dropdown-content {
+    display: none;
     position: absolute;
     top: 100%;
     left: 0;
-    z-index: 10;
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0s, opacity 0.2s ease-in-out;
+    z-index: 100;
+    background: #fff;
+    padding: 1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    white-space: nowrap;
+    border-radius: 6px;
   }
   
-  .md-tabs__item:hover > .md-tabs__dropdown {
-    visibility: visible;
-    opacity: 1;
+  /* Hover to show dropdown */
+  .md-tabs__item:hover > .md-tabs__dropdown-content {
+    display: flex;
   }
   
-  /* 3rd-level items inside 2nd-level */
-  .md-tabs__dropdown-content {
+  /* Columns for grouped nav under tabs */
+  .md-tabs__dropdown-column {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    margin-top: 0.5rem;
-    margin-left: 1rem;
-    padding: 0.5rem;
-    background-color: #fafafa;
-    border: 1px solid #eee;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    min-width: 180px;
   }
   
-  /* Item styles */
-  .md-tabs__dropdown-item a {
-    white-space: nowrap;
+  .md-tabs__dropdown-heading {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .md-tabs__dropdown-item {
+    padding: 0.3rem 0;
     color: #333;
     text-decoration: none;
-    padding: 0.25rem 0.5rem;
+    font-size: 0.9rem;
   }
   
-  .md-tabs__dropdown-item a:hover {
-    background-color: #eee;
-    border-radius: 4px;
+  .md-tabs__dropdown-item:hover {
+    color: #000;
+    text-decoration: underline;
   }
