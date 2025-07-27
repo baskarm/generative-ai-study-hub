@@ -1060,6 +1060,132 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#quick-navigation_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Quick Navigation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview-of-4-bit-and-qlora-training" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview of 4-bit and qLoRA Training
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview of 4-bit and qLoRA Training">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#topics-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔍 Topics Covered:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#memory-efficiency-via-quantization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memory Efficiency via Quantization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Memory Efficiency via Quantization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#4-bit-quantization" class="md-nav__link">
+    <span class="md-ellipsis">
+      📉 4-bit Quantization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qlora" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧠 qLoRA
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gemma-2-27b-model-training" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gemma-2 27B Model Training
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gemma-2 27B Model Training">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#training-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧾 Training Setup:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenges" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚠️ Challenges:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#yaml-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      YAML Configuration
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#colab-notebook_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Colab Notebook
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references-further-reading_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      References &amp; Further Reading
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2606,7 +2732,7 @@ SQuAD (Stanford Question Answering Dataset) consists of:</p>
 - <strong>Training Set</strong>: ~87,000 samples
 - <strong>Validation Set</strong>: ~10,000 samples</p>
 <p>🔗 <a href="https://huggingface.co/datasets/squad">SQuAD on Hugging Face</a></p>
-<p><a href="#-quick-navigation">Back to Top</a></p>
+<p><a href="#quick-navigation">Back to Top</a></p>
 <hr />
 <h2 id="data-preprocessing">Data Preprocessing</h2>
 <h3 id="tools-used">🔧 Tools Used</h3>
@@ -2630,7 +2756,7 @@ SQuAD (Stanford Question Answering Dataset) consists of:</p>
 <li>Output: The answer</li>
 <li>System prompt: “Read the following context and concisely answer my question.”</li>
 </ol>
-<p><a href="#-quick-navigation">Back to Top</a></p>
+<p><a href="#quick-navigation">Back to Top</a></p>
 <hr />
 <h2 id="training-configuration">Training Configuration</h2>
 <h3 id="model-microsoftphi-3-medium-128k-instruct">🧠 Model: <code>microsoft/Phi-3-medium-128k-instruct</code></h3>
@@ -2705,7 +2831,7 @@ This disables gradient calculation over the input portion of the sequence.
 - Ideal for tasks with short, deterministic outputs (e.g., QA, summarization).
 - **Not recommended** for conversational datasets or tasks with intertwined dialog.
 
-[Back to Top](#-quick-navigation)
+[Back to Top](#quick-navigation)
 
 ---
 
@@ -2725,7 +2851,7 @@ Two identical models are trained:
 
 This adjustment improves focus and prevents overfitting to irrelevant tokens.
 
-[Back to Top](#-quick-navigation)
+[Back to Top](#quick-navigation)
 
 ---
 
@@ -2766,7 +2892,7 @@ gradient_accumulation_steps: 1
 gradient_checkpointing: true
 load_in_8bit: true
 </code></pre>
-<p><a href="#-quick-navigation">Back to Top</a></p>
+<p><a href="#quick-navigation">Back to Top</a></p>
 <hr />
 <h2 id="colab-notebook_1">Colab Notebook</h2>
 <p>👉 <a href="https://colab.research.google.com/drive/1PN6MyU6WubUbRqjkq8mtBMmxRvjzHxxV?usp=sharing">Open in Colab</a><br />
@@ -2783,7 +2909,7 @@ load_in_8bit: true
 <li><a href="https://github.com/OpenAccess-AI-Collective/axolotl">Axolotl GitHub</a></li>
 <li><a href="https://research.google.com/colaboratory/">Google Colab Guide</a></li>
 </ul>
-<p><a href="#-quick-navigation">Back to Top</a></p>
+<p><a href="#quick-navigation">Back to Top</a></p>
 <p><a href="#quick-navigation">Back to Top</a></p>
 <hr />
 <h2 id="edge-of-hardware-limits-scaling-inputs-with-flash-attention-2">Edge of Hardware Limits: Scaling Inputs with Flash Attention 2</h2>
@@ -2806,7 +2932,7 @@ load_in_8bit: true
 <p>Challenges:
 - Transformer attention is <strong>quadratic</strong> in complexity
 - Long sequences demand more compute and memory</p>
-<p><a href="#-quick-navigation">Back to Top</a></p>
+<p><a href="#quick-navigation">Back to Top</a></p>
 <hr />
 <h2 id="flash-attention-theory">Flash Attention: Theory</h2>
 <p>Flash Attention is a highly efficient attention mechanism designed to optimize:
@@ -2825,7 +2951,7 @@ load_in_8bit: true
 <li>Higher max sequence lengths and batch sizes achievable</li>
 </ul>
 <p>📘 Flash Attention Paper: <a href="https://arxiv.org/abs/2205.14135">ArXiv: 2205.14135</a></p>
-<p><a href="#-quick-navigation">Back to Top</a></p>
+<p><a href="#quick-navigation">Back to Top</a></p>
 <hr />
 <h2 id="implementing-flash-attention">Implementing Flash Attention</h2>
 <p>In the <code>Axolotl</code> framework, enabling Flash Attention is very simple:</p>
@@ -2851,7 +2977,7 @@ flash_attention: true
 adapter: qlora
 load_in_4bit: true
 </code></pre>
-<p><a href="#-quick-navigation">Back to Top</a></p>
+<p><a href="#quick-navigation">Back to Top</a></p>
 <hr />
 <h2 id="long-context-dataset-training">Long Context Dataset Training</h2>
 <p>To test Flash Attention and longer contexts, the model was fine-tuned using:</p>
@@ -2863,12 +2989,12 @@ load_in_4bit: true
 📉 <strong>Observation</strong>:
 - 5% lower memory usage
 - 10–12% training speedup</p>
-<p><a href="#-quick-navigation">Back to Top</a></p>
+<p><a href="#quick-navigation">Back to Top</a></p>
 <hr />
 <h2 id="colab-notebook_2">Colab Notebook</h2>
 <p>👉 <a href="https://colab.research.google.com/drive/1CM_tNCws5wqW6Mmww7N94FQ0K7E-yOXT?usp=sharing">Open in Colab</a><br />
 <a href="https://colab.research.google.com/drive/1CM_tNCws5wqW6Mmww7N94FQ0K7E-yOXT?usp=sharing"><img alt="Open in Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
-<p><a href="#-quick-navigation">Back to Top</a></p>
+<p><a href="#quick-navigation">Back to Top</a></p>
 <hr />
 <h2 id="references-further-reading_2">References &amp; Further Reading</h2>
 <ul>
@@ -2883,8 +3009,116 @@ load_in_4bit: true
 <p><a href="#quick-navigation">Back to Top</a></p>
 <hr />
 <h2 id="edge-of-hardware-limits-reaching-4bit-training-with-qlora">Edge of Hardware Limits: Reaching 4bit Training with QLoRA</h2>
-<!-- Insert your content here -->
+<h2 id="quick-navigation_4">📌 Quick Navigation</h2>
+<ul>
+<li><a href="#overview-of-4-bit-and-qlora-training">Overview of 4-bit and qLoRA Training</a></li>
+<li><a href="#memory-efficiency-via-quantization">Memory Efficiency via Quantization</a></li>
+<li><a href="#gemma-2-27b-model-training">Gemma-2 27B Model Training</a></li>
+<li><a href="#yaml-configuration">YAML Configuration</a></li>
+<li><a href="#colab-notebook">Colab Notebook</a></li>
+<li><a href="#references--further-reading">References &amp; Further Reading</a></li>
+</ul>
+<hr />
+<h2 id="overview-of-4-bit-and-qlora-training">Overview of 4-bit and qLoRA Training</h2>
+<p>As we push the boundaries of training ever-larger models on limited hardware, the next evolution involves precision optimization:</p>
+<h3 id="topics-covered">🔍 Topics Covered:</h3>
+<ul>
+<li><strong>4-bit training</strong> via double quantization</li>
+<li><strong>qLoRA</strong> (quantized Low-Rank Adaptation)</li>
+<li>Using <code>Gemma-2-27B</code> on a 24GB GPU</li>
+</ul>
+<p>These techniques allow us to maximize model size without scaling hardware further.</p>
+<p><a href="#quick-navigation">Back to Top</a></p>
+<hr />
+<h2 id="memory-efficiency-via-quantization">Memory Efficiency via Quantization</h2>
+<h3 id="4-bit-quantization">📉 4-bit Quantization</h3>
+<ul>
+<li>Reduces model weights from 16/32 bits to <strong>4 bits</strong></li>
+<li>Uses <strong>double quantization</strong>: 8-bit quantization followed by 4-bit compression</li>
+<li>Implements <strong>NF4 (Normalized Float)</strong> for high precision retention</li>
+<li>Memory savings allow fitting massive models on smaller GPUs</li>
+</ul>
+<h3 id="qlora">🧠 qLoRA</h3>
+<ul>
+<li>A variant of LoRA integrating quantization into adapter training</li>
+<li>Propagates gradients only through <strong>low-rank matrices</strong>, while freezing the backbone</li>
+<li>Enables training models like <code>Gemma-2-27B</code> efficiently</li>
+</ul>
+<p>🚀 Outcome:
+- Fits <strong>27B parameters</strong> on a single <strong>24GB GPU</strong>
+- Matches or exceeds performance of full-precision fine-tuning</p>
+<p><a href="#quick-navigation">Back to Top</a></p>
+<hr />
+<h2 id="gemma-2-27b-model-training">Gemma-2 27B Model Training</h2>
+<p>We moved from Microsoft's Phi-3 to Google's <code>Gemma-2-27B</code> for long-instruction fine-tuning.</p>
+<h3 id="training-setup">🧾 Training Setup:</h3>
+<ul>
+<li><strong>Model</strong>: <code>unsloth/gemma-2-27b-it</code></li>
+<li><strong>Dataset</strong>: <code>LongAlpaca-12k</code></li>
+<li><strong>Precision</strong>: 4-bit (<code>load_in_4bit: true</code>)</li>
+<li><strong>Adapter</strong>: <code>qlora</code></li>
+<li><strong>Flash Attention</strong>: Enabled</li>
+<li><strong>Hardware</strong>: Single 24GB GPU</li>
+</ul>
+<h3 id="challenges">⚠️ Challenges:</h3>
+<ul>
+<li>Training failed at 8-bit due to OOM</li>
+<li>4-bit loading + qLoRA enabled training to proceed</li>
+<li>Achieved full convergence and speed on low-resource setup</li>
+</ul>
+<p><a href="#quick-navigation">Back to Top</a></p>
+<hr />
+<h2 id="yaml-configuration">YAML Configuration</h2>
+<pre><code class="language-yaml"># model params
+base_model: unsloth/gemma-2-27b-it
 
+# dataset params
+datasets:
+  - path: Yukang/LongAlpaca-12k
+    type: alpaca
+
+output_dir: ./models/gemma-LongAlpaca
+
+# training setup
+sequence_length: 1024
+bf16: auto
+tf32: false
+micro_batch_size: 1
+num_epochs: 1
+optimizer: adamw_bnb_8bit
+learning_rate: 0.0002
+logging_steps: 1
+
+# adapter and quantization
+adapter: qlora
+lora_r: 32
+lora_alpha: 16
+lora_dropout: 0.05
+lora_target_linear: true
+load_in_8bit: false
+load_in_4bit: true
+gradient_accumulation_steps: 1
+gradient_checkpointing: true
+flash_attention: true
+</code></pre>
+<p><a href="#quick-navigation">Back to Top</a></p>
+<hr />
+<h2 id="colab-notebook_3">Colab Notebook</h2>
+<p>👉 <a href="https://colab.research.google.com/drive/1Nf1R7g1fFejNiKVF-e5FRMqlohYHtJJ4?usp=sharing">Open in Colab</a><br />
+<a href="https://colab.research.google.com/drive/1Nf1R7g1fFejNiKVF-e5FRMqlohYHtJJ4?usp=sharing"><img alt="Open in Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
+<p><a href="#quick-navigation">Back to Top</a></p>
+<hr />
+<h2 id="references-further-reading_3">References &amp; Further Reading</h2>
+<ul>
+<li><a href="https://huggingface.co/unsloth/gemma-2-27b-it">Gemma 2-27B on Hugging Face</a></li>
+<li><a href="https://huggingface.co/datasets/Yukang/LongAlpaca-12k">LongAlpaca Dataset – Hugging Face</a></li>
+<li><a href="https://arxiv.org/abs/2305.14314">QLoRA: Efficient Finetuning of LLMs</a></li>
+<li><a href="https://arxiv.org/abs/2106.09685">LoRA: Low-Rank Adaptation</a></li>
+<li><a href="https://arxiv.org/abs/2309.02369">NF4 Quantization Paper</a></li>
+<li><a href="https://huggingface.co/docs/transformers/index">Transformers Documentation – Hugging Face</a></li>
+<li><a href="https://arxiv.org/abs/2205.14135">Flash Attention (ArXiv)</a></li>
+<li><a href="https://github.com/OpenAccess-AI-Collective/axolotl">Axolotl Fine-Tuning GitHub</a></li>
+</ul>
 <p><a href="#quick-navigation">Back to Top</a></p>
 
 
