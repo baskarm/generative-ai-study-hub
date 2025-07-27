@@ -938,9 +938,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#task-focused-training-aim-for-better-learning-part-2" class="md-nav__link">
+  <a href="#colab-notebook_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Task-Focused Training: Aim for Better Learning - Part 2
+      Colab Notebook
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references-further-reading_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      References &amp; Further Reading
     </span>
   </a>
   
@@ -950,6 +959,93 @@
   <a href="#edge-of-hardware-limits-scaling-inputs-with-flash-attention-2" class="md-nav__link">
     <span class="md-ellipsis">
       Edge of Hardware Limits: Scaling Inputs with Flash Attention 2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-navigation_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      📌 Quick Navigation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scaling-model-training" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scaling Model Training
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flash-attention-theory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flash Attention: Theory
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Flash Attention: Theory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-optimizations" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧠 Key Optimizations:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outcomes" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔍 Outcomes:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementing-flash-attention" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementing Flash Attention
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#long-context-dataset-training" class="md-nav__link">
+    <span class="md-ellipsis">
+      Long Context Dataset Training
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#colab-notebook_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Colab Notebook
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references-further-reading_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      References &amp; Further Reading
     </span>
   </a>
   
@@ -2551,36 +2647,239 @@ SQuAD (Stanford Question Answering Dataset) consists of:</p>
 <li>Target Linear Layers</li>
 </ul>
 <h3 id="yaml-config-snippet">🌀 YAML Config Snippet</h3>
-<p>```yaml
-base_model: microsoft/Phi-3-medium-128k-instruct
+<pre><code class="language-yaml">base_model: microsoft/Phi-3-medium-128k-instruct
 datasets:
   - path: TheFuzzyScientist/squad-for-llms
     type: 
-      system_prompt: "Read the following context and concisely answer my question."
+      system_prompt: &quot;Read the following context and concisely answer my question.&quot;
       field_system: system
       field_instruction: question
       field_input: context
       field_output: output
-      format: "&lt;|user|&gt;\n {input} {instruction} </s>\n&lt;|assistant|&gt;"
+      format: &quot;&lt;|user|&gt;\n {input} {instruction} &lt;/s&gt;\n&lt;|assistant|&gt;&quot;
 output_dir: ./models/Phi3_Storyteller
 sequence_length: 8172
 micro_batch_size: 4
 learning_rate: 0.0002
 adapter: lora
 gradient_checkpointing: true
-load_in_8bit: true</p>
-<p>📄 <a href="https://huggingface.co/microsoft/Phi-3-medium-128k-instruct">Model on Hugging Face</a><br />
-📜 <a href="https://arxiv.org/abs/2404.14219">ArXiv Paper (if available)</a><br />
-<a href="#quick-navigation">Back to Top</a></p>
-<hr />
-<h2 id="task-focused-training-aim-for-better-learning-part-2">Task-Focused Training: Aim for Better Learning - Part 2</h2>
-<!-- Insert your content here -->
+load_in_8bit: true
 
+📄 [Model on Hugging Face](https://huggingface.co/microsoft/Phi-3-medium-128k-instruct)  
+📜 [ArXiv Paper (if available)](https://arxiv.org/abs/2404.14219)  
+[Back to Top](#quick-navigation)
+
+---
+
+## Task-Focused Training: Aim for Better Learning - Part 2
+
+
+## 📌 Quick Navigation
+
+- [Output-Focused Training](#output-focused-training)
+- [Training Behavior Comparison](#training-behavior-comparison)
+- [YAML Configuration Updates](#yaml-configuration-updates)
+- [Colab Notebook](#colab-notebook)
+- [References &amp; Further Reading](#references--further-reading)
+
+---
+
+## Output-Focused Training
+
+In this lesson, we explore how to modify our training setup so that the model is rewarded and punished based **only** on its ability to generate the output — not the input.
+
+This is especially important for tasks like **question answering**, where:
+- The **input (context + question)** is significantly longer than the **output (answer)**.
+- The model may waste learning capacity modeling irrelevant parts of the input.
+
+### ✅ Key Change:
+- In the Axolotl framework, set:
+
+  ```yaml
+  train_on_inputs: false
+  ```
+
+This disables gradient calculation over the input portion of the sequence.
+
+### 📌 When to Use
+- Ideal for tasks with short, deterministic outputs (e.g., QA, summarization).
+- **Not recommended** for conversational datasets or tasks with intertwined dialog.
+
+[Back to Top](#-quick-navigation)
+
+---
+
+## Training Behavior Comparison
+
+Two identical models are trained:
+- **Left**: `train_on_inputs = false` (loss computed only on output)
+- **Right**: `train_on_inputs = true` (loss computed on full input + output)
+
+### Observations:
+- Early performance is similar due to SQuAD's simplicity.
+- Models with `train_on_inputs = false` tend to:
+  - Converge **faster**
+  - Achieve **higher final accuracy**
+  - Require **fewer steps**
+  - Be **more stable** (less prone to divergence)
+
+This adjustment improves focus and prevents overfitting to irrelevant tokens.
+
+[Back to Top](#-quick-navigation)
+
+---
+
+## YAML Configuration Updates
+
+Below is the modified configuration snippet used for this lesson:
+
+```yaml
+base_model: microsoft/Phi-3-medium-128k-instruct
+datasets:
+  - path: TheFuzzyScientist/squad-for-llms
+    type: 
+      system_prompt: &quot;Read the following context and concisely answer my question.&quot;
+      field_system: system
+      field_instruction: question
+      field_input: context
+      field_output: output
+      format: &quot;&lt;|user|&gt;
+ {input} {instruction} &lt;/s&gt;
+&lt;|assistant|&gt;&quot;
+      no_input_format: &quot;&lt;|user|&gt; {instruction} &lt;/s&gt;
+&lt;|assistant|&gt;&quot;
+train_on_inputs: false
+output_dir: ./models/Phi3_Storyteller
+sequence_length: 8172
+bf16: auto
+tf32: false
+micro_batch_size: 4
+num_epochs: 1
+optimizer: adamw_bnb_8bit
+learning_rate: 0.0002
+adapter: lora
+lora_r: 32
+lora_alpha: 16
+lora_dropout: 0.05
+lora_target_linear: true
+gradient_accumulation_steps: 1
+gradient_checkpointing: true
+load_in_8bit: true
+</code></pre>
+<p><a href="#-quick-navigation">Back to Top</a></p>
+<hr />
+<h2 id="colab-notebook_1">Colab Notebook</h2>
+<p>👉 <a href="https://colab.research.google.com/drive/1PN6MyU6WubUbRqjkq8mtBMmxRvjzHxxV?usp=sharing">Open in Colab</a><br />
+<a href="https://colab.research.google.com/drive/1PN6MyU6WubUbRqjkq8mtBMmxRvjzHxxV?usp=sharing"><img alt="Open in Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
+<p><a href="#quick-navigation">Back to Top</a></p>
+<hr />
+<h2 id="references-further-reading_1">References &amp; Further Reading</h2>
+<ul>
+<li><a href="https://huggingface.co/microsoft/Phi-3-medium-128k-instruct">Phi-3 Model on Hugging Face</a></li>
+<li><a href="https://arxiv.org/abs/2404.14219">ArXiv: Phi-3 Model Paper</a></li>
+<li><a href="https://discuss.huggingface.co/t/efficient-loss-masking/41053">Training on Outputs Only - Hugging Face Discussion</a></li>
+<li><a href="https://arxiv.org/abs/2106.09685">LoRA: Low-Rank Adaptation of Large Language Models</a></li>
+<li><a href="https://huggingface.co/docs/transformers/index">Transformers Docs – Hugging Face</a></li>
+<li><a href="https://github.com/OpenAccess-AI-Collective/axolotl">Axolotl GitHub</a></li>
+<li><a href="https://research.google.com/colaboratory/">Google Colab Guide</a></li>
+</ul>
+<p><a href="#-quick-navigation">Back to Top</a></p>
 <p><a href="#quick-navigation">Back to Top</a></p>
 <hr />
 <h2 id="edge-of-hardware-limits-scaling-inputs-with-flash-attention-2">Edge of Hardware Limits: Scaling Inputs with Flash Attention 2</h2>
-<!-- Insert your content here -->
+<h2 id="quick-navigation_3">📌 Quick Navigation</h2>
+<ul>
+<li><a href="#scaling-model-training">Scaling Model Training</a></li>
+<li><a href="#flash-attention-theory">Flash Attention: Theory</a></li>
+<li><a href="#implementing-flash-attention">Implementing Flash Attention</a></li>
+<li><a href="#long-context-dataset-training">Long Context Dataset Training</a></li>
+<li><a href="#colab-notebook">Colab Notebook</a></li>
+<li><a href="#references--further-reading">References &amp; Further Reading</a></li>
+</ul>
+<hr />
+<h2 id="scaling-model-training">Scaling Model Training</h2>
+<p>In this section, the focus shifts to pushing the boundaries of what is possible in training large language models (LLMs) <strong>without upgrading hardware</strong>.</p>
+<p>Key goals:
+- Train on longer sequences
+- Reduce GPU memory footprint
+- Improve training throughput and stability</p>
+<p>Challenges:
+- Transformer attention is <strong>quadratic</strong> in complexity
+- Long sequences demand more compute and memory</p>
+<p><a href="#-quick-navigation">Back to Top</a></p>
+<hr />
+<h2 id="flash-attention-theory">Flash Attention: Theory</h2>
+<p>Flash Attention is a highly efficient attention mechanism designed to optimize:
+- Memory transfers
+- Computation efficiency</p>
+<h3 id="key-optimizations">🧠 Key Optimizations:</h3>
+<ul>
+<li>Minimizes memory I/O by loading queries, keys, and values once</li>
+<li>Operates on GPU SRAM instead of relying on frequent memory access</li>
+<li>Enables longer sequence training with same hardware</li>
+</ul>
+<h3 id="outcomes">🔍 Outcomes:</h3>
+<ul>
+<li>Up to <strong>1GB memory saved</strong></li>
+<li>Up to <strong>12% training speed improvement</strong></li>
+<li>Higher max sequence lengths and batch sizes achievable</li>
+</ul>
+<p>📘 Flash Attention Paper: <a href="https://arxiv.org/abs/2205.14135">ArXiv: 2205.14135</a></p>
+<p><a href="#-quick-navigation">Back to Top</a></p>
+<hr />
+<h2 id="implementing-flash-attention">Implementing Flash Attention</h2>
+<p>In the <code>Axolotl</code> framework, enabling Flash Attention is very simple:</p>
+<pre><code class="language-yaml">flash_attention: true
+</code></pre>
+<p>Once enabled, the attention mechanism becomes more memory-efficient without any change to model architecture or tokenization.</p>
+<p>🛠️ Other Configuration Highlights:
+- Base Model: <code>unsloth/gemma-2-27b-it</code>
+- Adapter: <code>qLoRA</code>
+- Mixed precision: <code>bf16</code>, <code>load_in_4bit</code></p>
+<pre><code class="language-yaml"># model params
+base_model: unsloth/gemma-2-27b-it
 
+# dataset params
+datasets:
+  - path: Yukang/LongAlpaca-12k
+    type: alpaca
+
+output_dir: ./models/gemma-LongAlpaca
+
+sequence_length: 1024
+flash_attention: true
+adapter: qlora
+load_in_4bit: true
+</code></pre>
+<p><a href="#-quick-navigation">Back to Top</a></p>
+<hr />
+<h2 id="long-context-dataset-training">Long Context Dataset Training</h2>
+<p>To test Flash Attention and longer contexts, the model was fine-tuned using:</p>
+<p>🗂️ <strong>Dataset</strong>: <code>LongAlpaca-12k</code><br />
+🧾 <strong>Type</strong>: Instruction-following conversations with long inputs and outputs<br />
+🔢 <strong>Max Sequence Length</strong>: 16,000 tokens (extended from 8k)<br />
+📦 <strong>Micro Batch Size</strong>: 1<br />
+🧪 <strong>Padding</strong>: Applied to ensure all sequences are uniform<br />
+📉 <strong>Observation</strong>:
+- 5% lower memory usage
+- 10–12% training speedup</p>
+<p><a href="#-quick-navigation">Back to Top</a></p>
+<hr />
+<h2 id="colab-notebook_2">Colab Notebook</h2>
+<p>👉 <a href="https://colab.research.google.com/drive/1CM_tNCws5wqW6Mmww7N94FQ0K7E-yOXT?usp=sharing">Open in Colab</a><br />
+<a href="https://colab.research.google.com/drive/1CM_tNCws5wqW6Mmww7N94FQ0K7E-yOXT?usp=sharing"><img alt="Open in Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
+<p><a href="#-quick-navigation">Back to Top</a></p>
+<hr />
+<h2 id="references-further-reading_2">References &amp; Further Reading</h2>
+<ul>
+<li><a href="https://arxiv.org/abs/2205.14135">Flash Attention (ArXiv)</a></li>
+<li><a href="https://huggingface.co/datasets/Yukang/LongAlpaca-12k">LongAlpaca Dataset – Hugging Face</a></li>
+<li><a href="https://huggingface.co/unsloth/gemma-2-27b-it">Gemma-2-27B Model – Hugging Face</a></li>
+<li><a href="https://github.com/OpenAccess-AI-Collective/axolotl">Axolotl Fine-Tuning GitHub</a></li>
+<li><a href="https://arxiv.org/abs/2106.09685">LoRA: Low-Rank Adaptation</a></li>
+<li><a href="https://arxiv.org/abs/2305.14314">QLoRA: Efficient Finetuning of LLMs</a></li>
+<li><a href="https://huggingface.co/docs/transformers/index">Transformers Documentation – Hugging Face</a></li>
+</ul>
 <p><a href="#quick-navigation">Back to Top</a></p>
 <hr />
 <h2 id="edge-of-hardware-limits-reaching-4bit-training-with-qlora">Edge of Hardware Limits: Reaching 4bit Training with QLoRA</h2>
