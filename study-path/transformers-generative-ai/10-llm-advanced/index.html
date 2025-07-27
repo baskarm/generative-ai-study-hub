@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://baskarm.github.io/generative-ai-study-hub/study-path/transformers/10-llm-advanced/">
+        <link rel="canonical" href="https://baskarm.github.io/generative-ai-study-hub/study-path/transformers-generative-ai/10-llm-advanced/">
       
       
         <link rel="prev" href="../09-llm-prep/">
@@ -424,7 +424,7 @@
   
   
   <span class="md-ellipsis">
-    Transformers & Generative AI
+    2. Transformers & Generative AI
     
   </span>
   
@@ -435,7 +435,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_1">
             <span class="md-nav__icon md-icon"></span>
-            Transformers & Generative AI
+            2. Transformers & Generative AI
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1595,7 +1595,7 @@
   
   
   <span class="md-ellipsis">
-    LLM Ops
+    4. LLM Ops
     
   </span>
   
@@ -1606,7 +1606,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
-            LLM Ops
+            4. LLM Ops
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1853,7 +1853,7 @@
   
   
   <span class="md-ellipsis">
-    AI Evals for Engineers & PMs
+    5. AI Evals for Engineers & PMs
     
   </span>
   
@@ -1864,7 +1864,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_3">
             <span class="md-nav__icon md-icon"></span>
-            AI Evals for Engineers & PMs
+            5. AI Evals for Engineers & PMs
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2954,25 +2954,25 @@
 <p><a href="#quick-navigation">Back to Top</a></p>
 <hr />
 <h2 id="advanced-configuration-example">Advanced Configuration Example</h2>
-<pre><code class="language-yaml"># Source: advanced_train.yml
-base_model: unsloth/Meta-Llama-3.1-8B-Instruct
-datasets:
-  - path: jaydenccc/AI_Storyteller_Dataset
-    type:
-      system_prompt: &quot;You are an amazing storyteller. From the following synopsis, create an engaging story.&quot;
-      field_instruction: synopsis
-      field_output: short_story
-output_dir: ./models/Llama3_Storyteller2
-sequence_length: 1024
-micro_batch_size: 4
-optimizer: adamw_bnb_8bit
-learning_rate: 0.0002
-adapter: lora
-lora_r: 32
-lora_alpha: 16
-lora_dropout: 0.05
-gradient_checkpointing: true
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1"># Source: advanced_train.yml</span>
+<span class="nt">base_model</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unsloth/Meta-Llama-3.1-8B-Instruct</span>
+<span class="nt">datasets</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jaydenccc/AI_Storyteller_Dataset</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">system_prompt</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;You</span><span class="nv"> </span><span class="s">are</span><span class="nv"> </span><span class="s">an</span><span class="nv"> </span><span class="s">amazing</span><span class="nv"> </span><span class="s">storyteller.</span><span class="nv"> </span><span class="s">From</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">following</span><span class="nv"> </span><span class="s">synopsis,</span><span class="nv"> </span><span class="s">create</span><span class="nv"> </span><span class="s">an</span><span class="nv"> </span><span class="s">engaging</span><span class="nv"> </span><span class="s">story.&quot;</span>
+<span class="w">      </span><span class="nt">field_instruction</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">synopsis</span>
+<span class="w">      </span><span class="nt">field_output</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">short_story</span>
+<span class="nt">output_dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./models/Llama3_Storyteller2</span>
+<span class="nt">sequence_length</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1024</span>
+<span class="nt">micro_batch_size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span>
+<span class="nt">optimizer</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">adamw_bnb_8bit</span>
+<span class="nt">learning_rate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0002</span>
+<span class="nt">adapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lora</span>
+<span class="nt">lora_r</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">32</span>
+<span class="nt">lora_alpha</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">16</span>
+<span class="nt">lora_dropout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.05</span>
+<span class="nt">gradient_checkpointing</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</code></pre></div>
 <p>👉 <a href="https://colab.research.google.com/drive/1ntPiYbPZ8VomtKuIpEKUEKqdvJiSR3bH?usp=sharing">Open in Colab</a><br />
 <a href="https://colab.research.google.com/drive/1ntPiYbPZ8VomtKuIpEKUEKqdvJiSR3bH?usp=sharing"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
 <p><a href="#quick-navigation">Back to Top</a></p>
@@ -3308,9 +3308,9 @@ gradient_checkpointing: true
 <li>Gradients are accumulated to simulate a larger batch.</li>
 <li>Enables efficient training on hardware with limited GPU memory.</li>
 </ul>
-<p><strong>Effective Batch Size Formula</strong>:</p>
-<pre><code>Effective Batch Size = Micro Batch Size × Gradient Accumulation Steps × Number of GPUs
-</code></pre>
+<p><strong>Effective Batch Size Formula</strong>:
+<div class="highlight"><pre><span></span><code>Effective Batch Size = Micro Batch Size × Gradient Accumulation Steps × Number of GPUs
+</code></pre></div></p>
 <p>🖼️ <img alt="Batch Brick Analogy" src="../../../images/Gradient_Accumlation.png" /></p>
 <blockquote>
 <p><em>Alt text</em>: Diagram showing micro-batch pages filling a book one by one, representing how gradient accumulation simulates a large batch.</p>
@@ -3613,7 +3613,7 @@ gradient_checkpointing: true
 </tbody>
 </table>
 <h2 id="advanced-configuration-example_1">Advanced Configuration Example</h2>
-<pre><code>#Source: advanced_train2.yml
+<div class="highlight"><pre><span></span><code>#Source: advanced_train2.yml
 # model params
 base_model: unsloth/Meta-Llama-3.1-8B-Instruct
 
@@ -3659,7 +3659,7 @@ gradient_accumulation_steps: 1
 
 # Gradient Checkpointing
 gradient_checkpointing: true
-</code></pre>
+</code></pre></div>
 <h2 id="try-it-yourself">Try It Yourself</h2>
 <p>Explore and run the notebook interactively using Google Colab:</p>
 <p><a href="https://colab.research.google.com/drive/1NOO7cyRIN23JMTiWBGc3RkcLMmvqaDrp?usp=sharing">Open the Notebook in Colab</a></p>
@@ -3711,13 +3711,13 @@ gradient_checkpointing: true
 <hr />
 <h2 id="using-xolotlmerge_lora">Using <code>xolotl.merge_lora</code></h2>
 <p>To merge the adapter with the base model:</p>
-<pre><code class="language-python">from xolotl import merge_lora
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">xolotl</span><span class="w"> </span><span class="kn">import</span> <span class="n">merge_lora</span>
 
-merge_lora(
-  config_path=&quot;path/to/config.yaml&quot;,
-  adapter_path=&quot;path/to/adapter&quot;
-)
-</code></pre>
+<span class="n">merge_lora</span><span class="p">(</span>
+  <span class="n">config_path</span><span class="o">=</span><span class="s2">&quot;path/to/config.yaml&quot;</span><span class="p">,</span>
+  <span class="n">adapter_path</span><span class="o">=</span><span class="s2">&quot;path/to/adapter&quot;</span>
+<span class="p">)</span>
+</code></pre></div>
 <ul>
 <li>The process creates a new model directory with the full merged weights.</li>
 <li>You can then prompt the model as usual for inference.</li>
@@ -3731,8 +3731,8 @@ merge_lora(
 - No explicit task prompt was given to the instruction-following model.</p>
 <p>✅ Fix:
 - Add a system prompt like:</p>
-<pre><code class="language-plaintext">You are an amazing storyteller. From the following synopsis, write an engaging story.
-</code></pre>
+<div class="highlight"><pre><span></span><code>You are an amazing storyteller. From the following synopsis, write an engaging story.
+</code></pre></div>
 <ul>
 <li>Helps align model behavior with instruction-tuned expectations.</li>
 </ul>
@@ -3804,7 +3804,7 @@ merge_lora(
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 26, 2025 05:23:04 UTC">July 26, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 27, 2025 18:10:39 UTC">July 27, 2025</span>
   </span>
 
     
