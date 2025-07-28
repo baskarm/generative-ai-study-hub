@@ -113,3 +113,10 @@
   .md-tabs__subdropdown:hover .md-tabs__subdropdown-content {
     display: flex;
   }
+
+ /* 🔠 Increase the site title font size */
+.md-header__title {
+  font-size: 1.6rem !important;
+  font-weight: 600;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+}
