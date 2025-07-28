@@ -1,7 +1,7 @@
 {
   "name": "Generative AI Study Hub",
   "short_name": "AI Hub",
-  "start_url": "./?source=pwa",
+  "start_url": "/generative-ai-study-hub/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#1c1c1c",
@@ -16,5 +16,5 @@
       "sizes": "512x512",
       "type": "image/png"
     }
-]
+  ]
 }

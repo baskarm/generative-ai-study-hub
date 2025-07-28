@@ -4,7 +4,7 @@
 <script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', function () {
-      navigator.serviceWorker.register('/generative-ai-study-hub/service-worker.js?v=1.0.2', {
+      navigator.serviceWorker.register('/generative-ai-study-hub/service-worker.js?v=1.0.3', {
         scope: '/generative-ai-study-hub/'
       }).then(function (registration) {
         console.log('✅ ServiceWorker registered:', registration);
