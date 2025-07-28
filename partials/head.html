@@ -4,16 +4,13 @@
 <script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', function () {
-      navigator.serviceWorker.register('/generative-ai-study-hub/service-worker.js', {
+      navigator.serviceWorker.register('/generative-ai-study-hub/service-worker.js?v=1.0.2', {
         scope: '/generative-ai-study-hub/'
       }).then(function (registration) {
         console.log('✅ ServiceWorker registered:', registration);
-
-        // ✅ Optional Debugging
         navigator.serviceWorker.getRegistrations().then(regs => {
           console.log('🔍 Registered SWs:', regs);
         });
-
       }).catch(function (error) {
         console.error('❌ ServiceWorker registration failed:', error);
       });
