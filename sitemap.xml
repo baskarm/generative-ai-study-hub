@@ -2,234 +2,278 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://baskarm.github.io/generative-ai-study-hub/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
          <loc>https://baskarm.github.io/generative-ai-study-hub/reference-hub/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
          <loc>https://baskarm.github.io/generative-ai-study-hub/reference-hub/applications/instruction-tuning/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
          <loc>https://baskarm.github.io/generative-ai-study-hub/reference-hub/applications/qa-over-docs/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
          <loc>https://baskarm.github.io/generative-ai-study-hub/reference-hub/applications/semantic-search/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
          <loc>https://baskarm.github.io/generative-ai-study-hub/reference-hub/foundation/models/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
          <loc>https://baskarm.github.io/generative-ai-study-hub/reference-hub/foundation/nlp-overview/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
          <loc>https://baskarm.github.io/generative-ai-study-hub/reference-hub/foundation/transformers/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
          <loc>https://baskarm.github.io/generative-ai-study-hub/reference-hub/knowledge/huggingface/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
          <loc>https://baskarm.github.io/generative-ai-study-hub/reference-hub/knowledge/learning-links/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
          <loc>https://baskarm.github.io/generative-ai-study-hub/reference-hub/knowledge/prompt-engineering/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
          <loc>https://baskarm.github.io/generative-ai-study-hub/reference-hub/knowledge/research/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
          <loc>https://baskarm.github.io/generative-ai-study-hub/reference-hub/knowledge/tools/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
          <loc>https://baskarm.github.io/generative-ai-study-hub/reference-hub/llms/intro/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
          <loc>https://baskarm.github.io/generative-ai-study-hub/reference-hub/llms/rlhf/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
          <loc>https://baskarm.github.io/generative-ai-study-hub/reference-hub/llms/scaling/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
          <loc>https://baskarm.github.io/generative-ai-study-hub/reference-hub/practice/efficiency/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
          <loc>https://baskarm.github.io/generative-ai-study-hub/reference-hub/practice/embeddings/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
          <loc>https://baskarm.github.io/generative-ai-study-hub/reference-hub/practice/fine-tuning/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
          <loc>https://baskarm.github.io/generative-ai-study-hub/reference-hub/practice/tokenization/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
          <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
-         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/llmops/01-getting-started/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/1-python/01-introduciton-python/</loc>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
-         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/llmops/02-pre-deployment/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/1-python/02-collection-of-variables/</loc>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
-         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/llmops/03-mlops-foundations/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/1-python/03-conditional-looping/</loc>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
-         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/llmops/04-advanced-deployment/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/1-python/04-functions/</loc>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
-         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/llmops/05-inference-optimization/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/1-python/05-numpy/</loc>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
-         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/llmops/06-economics/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/1-python/06-pandas/</loc>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
-         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/llmops/07-cluster-management/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/1-python/07-data-visualization/</loc>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
-         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/llmops/08-real-time-api/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/1-python/08-practical-exercise-study-1-cardiogood-fitness/</loc>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
-         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/rag-langchain/01-rag-fundamentals/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/1-python/09-practical-exercise-study-2-uber/</loc>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
-         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/rag-langchain/02-llm-intro/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/1-python/10-exploratorydataanalysis-EDA/</loc>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
-         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/rag-langchain/03-vector-db-embeddings/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/2-statistics/01-descriptive-statistics/</loc>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
-         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/rag-langchain/04-langchain-simple-pipeline/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/2-statistics/02-inferential-statistics/</loc>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
-         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/rag-langchain/05-langchain-advanced/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/2-statistics/03-distributions/</loc>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
-         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/rag-langchain/06-langchain-projects/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/2-statistics/04-hypothesis-testing-part-1/</loc>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
-         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/statistics-data-science/01-numpy/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/2-statistics/05-hypothesis-testing-part2/</loc>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
-         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/statistics-data-science/02-pandas/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/4-transformers-generative-ai/01-intro/</loc>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
-         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/statistics-data-science/03-data-visualization/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/4-transformers-generative-ai/02-getting-started/</loc>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
-         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/statistics-data-science/04-practical-exercise-study-1-cardiogood-fitness/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/4-transformers-generative-ai/03-nlp-overview/</loc>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
-         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/statistics-data-science/05-practical-exercise-study-2-uber/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/4-transformers-generative-ai/04-transformer-intro/</loc>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
-         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/statistics-data-science/06-exploratorydataanalysis-EDA/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/4-transformers-generative-ai/05-popular-transformer-models/</loc>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
-         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/statistics-data-science/07-descriptive-statistics/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/4-transformers-generative-ai/06-using-transformers/</loc>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
-         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/statistics-data-science/08-inferential-statistics/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/4-transformers-generative-ai/07-real-world-scenario-llm/</loc>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
-         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/statistics-data-science/09-distributions/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/4-transformers-generative-ai/08-llm-intro/</loc>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
-         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/statistics-data-science/10-hypothesis-testing-part-1/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/4-transformers-generative-ai/09-llm-prep/</loc>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
-         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/statistics-data-science/11-hypothesis-testing-part2/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/4-transformers-generative-ai/10-llm-advanced/</loc>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
-         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/transformers-generative-ai/01-intro/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/4-transformers-generative-ai/11-llm-specialized/</loc>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
-         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/transformers-generative-ai/02-getting-started/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/4-transformers-generative-ai/12-llm-deployment/</loc>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
-         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/transformers-generative-ai/03-nlp-overview/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/5-rag-langchain/01-rag-fundamentals/</loc>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
-         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/transformers-generative-ai/04-transformer-intro/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/5-rag-langchain/02-llm-intro/</loc>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
-         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/transformers-generative-ai/05-popular-transformer-models/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/5-rag-langchain/03-vector-db-embeddings/</loc>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
-         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/transformers-generative-ai/06-using-transformers/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/5-rag-langchain/04-langchain-simple-pipeline/</loc>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
-         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/transformers-generative-ai/07-real-world-scenario-llm/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/5-rag-langchain/05-langchain-advanced/</loc>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
-         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/transformers-generative-ai/08-llm-intro/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/5-rag-langchain/06-langchain-projects/</loc>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
-         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/transformers-generative-ai/09-llm-prep/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/6-llmops/01-getting-started/</loc>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
-         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/transformers-generative-ai/10-llm-advanced/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/6-llmops/02-pre-deployment/</loc>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
-         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/transformers-generative-ai/11-llm-specialized/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/6-llmops/03-mlops-foundations/</loc>
+         <lastmod>2025-07-28</lastmod>
     </url>
     <url>
-         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/transformers-generative-ai/12-llm-deployment/</loc>
-         <lastmod>2025-07-27</lastmod>
+         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/6-llmops/04-advanced-deployment/</loc>
+         <lastmod>2025-07-28</lastmod>
+    </url>
+    <url>
+         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/6-llmops/05-inference-optimization/</loc>
+         <lastmod>2025-07-28</lastmod>
+    </url>
+    <url>
+         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/6-llmops/06-economics/</loc>
+         <lastmod>2025-07-28</lastmod>
+    </url>
+    <url>
+         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/6-llmops/07-cluster-management/</loc>
+         <lastmod>2025-07-28</lastmod>
+    </url>
+    <url>
+         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/6-llmops/08-real-time-api/</loc>
+         <lastmod>2025-07-28</lastmod>
+    </url>
+    <url>
+         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/7-ai-eval-engineering/01-fundamentals/</loc>
+         <lastmod>2025-07-28</lastmod>
+    </url>
+    <url>
+         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/7-ai-eval-engineering/02-error-analysis/</loc>
+         <lastmod>2025-07-28</lastmod>
+    </url>
+    <url>
+         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/7-ai-eval-engineering/03-automated-evaluators/</loc>
+         <lastmod>2025-07-28</lastmod>
+    </url>
+    <url>
+         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/7-ai-eval-engineering/04-architecture-strategies/</loc>
+         <lastmod>2025-07-28</lastmod>
+    </url>
+    <url>
+         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/7-ai-eval-engineering/05-production-monitoring/</loc>
+         <lastmod>2025-07-28</lastmod>
+    </url>
+    <url>
+         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/7-ai-eval-engineering/06-human-review/</loc>
+         <lastmod>2025-07-28</lastmod>
+    </url>
+    <url>
+         <loc>https://baskarm.github.io/generative-ai-study-hub/study-path/7-ai-eval-engineering/07-cost-optimization/</loc>
+         <lastmod>2025-07-28</lastmod>
     </url>
 </urlset>
