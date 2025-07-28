@@ -8,7 +8,6 @@
      max-height: 48px !important;
    }
    
-   /* Shrink logo on mobile */
    @media screen and (max-width: 600px) {
      .md-header__button.md-logo img,
      .md-header__title .md-logo img {
@@ -74,13 +73,14 @@
      left: 0;
      background: white;
      padding: 1rem;
-     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
      z-index: 10;
    }
    
    .md-tabs__dropdown {
      display: none;
      flex-wrap: wrap;
+     position: relative;
    }
    
    .md-tabs__dropdown a {
@@ -94,10 +94,6 @@
    .md-tabs__dropdown a:hover {
      background-color: #f0f0f0;
      border-radius: 4px;
-   }
-   
-   .md-tabs__dropdown {
-     position: relative;
    }
    
    .md-tabs__dropdown-content {
@@ -141,7 +137,7 @@
      background-color: white;
      padding: 0.5rem;
      z-index: 100;
-     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
    }
    
    .md-tabs__subdropdown:hover .md-tabs__subdropdown-content {
