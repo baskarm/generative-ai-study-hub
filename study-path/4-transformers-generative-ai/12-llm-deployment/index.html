@@ -1409,7 +1409,7 @@
 <li><a href="#introductory-concepts-for-scale-training">Introductory Concepts for Scale Training</a></li>
 <li><a href="#understanding-deepspeed-theoretically">Understanding DeepSpeed Theoretically</a></li>
 <li><a href="#implementing-deepspeed-practically">Implementing DeepSpeed Practically</a></li>
-<li><a href="#fsdp-theoretical-insights">FSDP Theoretical Insights</a></li>
+<li><a href="#fully-sharded-data-parallel-fsdp-theoretical-insights">Fully Sharded Data Parallel (FSDP) Theoretical Insights</a></li>
 <li><a href="#applying-fsdp-in-practice">Applying FSDP in Practice</a></li>
 <li><a href="#course-conclusion-and-future-directions">Course Conclusion and Future Directions</a></li>
 <li><a href="#practice-test-2-llm-mastery">Practice Test 2: LLM Mastery</a></li>
@@ -1740,10 +1740,248 @@ The goal is to optimize <strong>training speed</strong> rather than memory effic
 <li><a href="https://huggingface.co/datasets/squad">SQuAD Dataset – Hugging Face</a></li>
 </ul>
 <p><a href="#quick-navigation">Back to Top</a></p>
+<h2 id="fully-sharded-data-parallel-fsdp-theoretical-insights">Fully Sharded Data Parallel (FSDP) Theoretical Insights</h2>
+<h2 id="quick-navigation_4">📌 Quick Navigation</h2>
+<ul>
+<li><a href="#1-overview-of-fsdp">## 1. Overview of FSDP</a></li>
+<li><a href="#2-why-fsdp-over-ddp">## 2. Why FSDP Over DDP?</a></li>
+<li><a href="#3-sharding-strategies-in-fsdp">## 3. Sharding Strategies in FSDP</a></li>
+<li><a href="#4-model-comparison-fsdp-vs-zero">## 4. Model Comparison: FSDP vs ZeRO</a></li>
+<li><a href="#5-when-to-use-fsdp">## 5. When to Use FSDP</a></li>
+<li><a href="#references--further-reading">## References &amp; Further Reading</a></li>
+</ul>
 <hr />
-<h2 id="fsdp-theoretical-insights">FSDP Theoretical Insights</h2>
+<h2 id="1-overview-of-fsdp">1. Overview of FSDP</h2>
+<p><strong>FSDP (Fully Sharded Data Parallel)</strong> is a PyTorch-native distributed training framework developed by Meta AI. It's designed for <strong>efficient memory usage and scalability</strong> while training large models—especially LLMs.</p>
+<ul>
+<li>Origin: Introduced by Meta within the PyTorch ecosystem.</li>
+<li>Key Use: Enables models too large for single GPU memory.</li>
+<li>Core Idea: Shard model weights, gradients, and optimizer states across multiple GPUs.</li>
+</ul>
+<p>🧩 <strong>Main Capabilities:</strong></p>
+<ul>
+<li>Memory-efficient training via model sharding.</li>
+<li>Smart offloading of model shards between GPU and CPU.</li>
+<li>Compatible with massive models (GPT-like, BERT variants).</li>
+<li>Reduces per-GPU memory footprint → supports larger batch sizes.</li>
+</ul>
+<p><a href="#-quick-navigation">Back to Top</a></p>
 <hr />
-<p><a href="#quick-navigation">Back to Top</a></p>
+<h2 id="2-why-fsdp-over-ddp">2. Why FSDP Over DDP?</h2>
+<table>
+<thead>
+<tr>
+<th>Technique</th>
+<th>Replicates Model</th>
+<th>Memory Pooling</th>
+<th>Model Size Suitability</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DDP (Distributed Data Parallel)</td>
+<td>✅ Full model replicated</td>
+<td>❌ No memory pooling</td>
+<td>Medium</td>
+<td>Speed-focused training</td>
+</tr>
+<tr>
+<td>FSDP</td>
+<td>❌ Fully sharded</td>
+<td>✅ Memory-efficient</td>
+<td>Large-scale</td>
+<td>Training LLMs beyond single GPU</td>
+</tr>
+</tbody>
+</table>
+<p>🔍 Unlike DDP, FSDP:
+- Does <strong>not</strong> replicate the full model.
+- <strong>Shards</strong> weights across GPUs.
+- Optimizes <strong>both training speed and memory usage</strong>.</p>
+<p><a href="#-quick-navigation">Back to Top</a></p>
+<hr />
+<h2 id="3-sharding-strategies-in-fsdp">3. Sharding Strategies in FSDP</h2>
+<p>FSDP provides 4 sharding strategies, similar in spirit to ZeRO stages (used by DeepSpeed):</p>
+<h3 id="no-sharding">🔵 No Sharding</h3>
+<ul>
+<li>Equivalent to DDP.</li>
+<li>No memory savings.</li>
+<li>Fastest strategy (lowest overhead).</li>
+<li>Use if memory isn’t a bottleneck.</li>
+</ul>
+<h3 id="gradients-optimizer-sharding-similar-to-zero-stage-2">🟡 Gradients &amp; Optimizer Sharding (Similar to ZeRO Stage 2)</h3>
+<ul>
+<li>Gradients and optimizer states are sharded.</li>
+<li>Parameters still replicated.</li>
+<li>Balanced trade-off between speed and memory.</li>
+</ul>
+<h3 id="hybrid-sharding">🟢 Hybrid Sharding</h3>
+<ul>
+<li>Shards parameters + optimizer states.</li>
+<li>Maintains full copy of model on each GPU for fast inference.</li>
+<li>Best for scenarios with frequent inference and evaluation needs.</li>
+</ul>
+<h3 id="full-sharding-similar-to-zero-stage-3">🔴 Full Sharding (Similar to ZeRO Stage 3)</h3>
+<ul>
+<li>Shards everything: parameters, gradients, optimizer states.</li>
+<li>Best memory efficiency.</li>
+<li>Ideal for very large models.</li>
+<li>Adds communication overhead → may slow down training.</li>
+</ul>
+<p>📊 <strong>Sharding Strategy Comparison Table:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Strategy</th>
+<th>Parameters</th>
+<th>Gradients</th>
+<th>Optimizer</th>
+<th>Memory Efficient</th>
+<th>Fast Inference</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>No Shard</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>🔴</td>
+<td>🟢</td>
+<td>Small models</td>
+</tr>
+<tr>
+<td>Grad+Opt</td>
+<td>❌</td>
+<td>✅</td>
+<td>✅</td>
+<td>🟡</td>
+<td>🟡</td>
+<td>Balanced setup</td>
+</tr>
+<tr>
+<td>Hybrid</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>🟢</td>
+<td>🟢</td>
+<td>Training + eval</td>
+</tr>
+<tr>
+<td>Full</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>🟢🟢🟢</td>
+<td>🔴</td>
+<td>Huge models</td>
+</tr>
+</tbody>
+</table>
+<p><a href="#-quick-navigation">Back to Top</a></p>
+<hr />
+<h2 id="4-model-comparison-fsdp-vs-zero">4. Model Comparison: FSDP vs ZeRO</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>FSDP</th>
+<th>ZeRO (DeepSpeed)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Native to</td>
+<td>PyTorch</td>
+<td>DeepSpeed/ONNX</td>
+</tr>
+<tr>
+<td>Sharding Levels</td>
+<td>Full</td>
+<td>Stage 1 to 3</td>
+</tr>
+<tr>
+<td>CPU Offloading</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Model-Agnostic</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Hardware Compatibility</td>
+<td>Any PyTorch GPU setup</td>
+<td>Azure/AWS optimized</td>
+</tr>
+<tr>
+<td>Supported Community</td>
+<td>Meta AI</td>
+<td>Microsoft</td>
+</tr>
+</tbody>
+</table>
+<p>🔎 FSDP has tighter PyTorch integration, making it easier for native PyTorch workflows.</p>
+<p>📎 <a href="https://huggingface.co/docs/accelerate/usage_guides/fsdp">FSDP on Hugging Face</a>
+📄 <a href="https://arxiv.org/abs/2210.06628">FSDP ArXiv Paper</a></p>
+<p><a href="#-quick-navigation">Back to Top</a></p>
+<hr />
+<h2 id="5-when-to-use-fsdp">5. When to Use FSDP</h2>
+<p>🏁 <strong>Best suited when:</strong></p>
+<ul>
+<li>You're training models with billions of parameters.</li>
+<li>GPU memory is insufficient for full-model replication.</li>
+<li>You need to scale across 4+ GPUs with low memory usage.</li>
+<li>You want fine-grained control over training memory behavior.</li>
+</ul>
+<p>🚩 <strong>Not necessary when:</strong></p>
+<ul>
+<li>Models fit easily on a single GPU.</li>
+<li>Training speed is more important than memory savings.</li>
+</ul>
+<p>🧠 Bonus: Even without full sharding, FSDP helps reduce memory usage to allow <strong>larger batch sizes</strong>.</p>
+<p><a href="#-quick-navigation">Back to Top</a></p>
+<hr />
+<h2 id="references-further-reading_3">References &amp; Further Reading</h2>
+<ul>
+<li>
+<p><a href="https://arxiv.org/abs/2210.06628">📄 FSDP: Fully Sharded Data Parallel Training (ArXiv)</a><br />
+  The original research paper introducing FSDP, explaining its architecture, design rationale, and performance benchmarks.</p>
+</li>
+<li>
+<p><a href="https://huggingface.co/docs/accelerate/usage_guides/fsdp">🧪 Hugging Face Accelerate: FSDP Training Guide</a><br />
+  Practical guidance on using FSDP with Hugging Face's Accelerate library for distributed training.</p>
+</li>
+<li>
+<p><a href="https://pytorch.org/tutorials/intermediate/FSDP_tutorial.html">📘 PyTorch FSDP Tutorial (Official)</a><br />
+  Step-by-step code tutorial from the PyTorch team demonstrating how to use <code>torch.distributed.fsdp</code>.</p>
+</li>
+<li>
+<p><a href="https://engineering.fb.com">💬 Meta AI Engineering Blog</a><br />
+  Technical blog posts by Meta on distributed training innovations, including the development of FSDP.</p>
+</li>
+<li>
+<p><a href="https://github.com/NVIDIA/Megatron-LM">🧠 NVIDIA Megatron-LM</a><br />
+  One of the earliest large-scale model training toolkits that inspired advances in sharded training techniques.</p>
+</li>
+<li>
+<p><a href="https://www.deepspeed.ai/tutorials/zero/">💻 DeepSpeed ZeRO Documentation (Microsoft)</a><br />
+  Deep dive into ZeRO stages 1–3, which parallel FSDP's sharding strategies in philosophy and effect.</p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=FZs7-vP3L3I">🎥 YouTube – Scaling Transformers with FSDP (Meta AI)</a><br />
+  Video walkthrough of how FSDP works and how it's applied in production-scale transformer training.</p>
+</li>
+<li>
+<p><a href="https://arxiv.org/abs/1910.02054">📚 Microsoft ZeRO-3 Optimization Paper</a><br />
+  Foundational paper on memory-optimized training with ZeRO, useful for comparing against FSDP.</p>
+</li>
+</ul>
+<p><a href="#-quick-navigation">Back to Top</a></p>
 <hr />
 <h2 id="applying-fsdp-in-practice">Applying FSDP in Practice</h2>
 <p>--</p>
@@ -1774,7 +2012,7 @@ The goal is to optimize <strong>training speed</strong> rather than memory effic
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 28, 2025 13:40:40 UTC">July 28, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 28, 2025 14:31:21 UTC">July 28, 2025</span>
   </span>
 
     
