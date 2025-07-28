@@ -3,35 +3,57 @@ site_url: https://baskarm.github.io/generative-ai-study-hub/
 
 theme:
   name: material
+  logo: images/adhana.png
+  custom_dir: docs/partials
+
+  font:
+    text: Inter
+    code: Fira Code
+
+  palette:
+    - scheme: default
+      primary: white
+      accent: deep purple
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: slate
+      primary: deep purple
+      accent: lime
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.indexes
+    - navigation.instant
+    - navigation.tracking
+    - navigation.footer
+    - content.footer
+    - toc.integrate
+    - search.suggest
+    - search.highlight
+    - content.code.annotate
+    - content.tabs.link
+    - content.action.edit
 
 docs_dir: docs
 
 nav:
   - Home: index.md
-  - Study Path:
-      - Transformers & Generative AI:
-          - 01 - Intro: study-path/transformers/01-intro.md
-          - 02 - Getting Started: study-path/transformers/02-getting-started.md
-          - 03 - NLP Overview: study-path/transformers/03-nlp-overview.md
-          - 04 - Transformer Intro: study-path/transformers/04-transformer-intro.md
-          - 05 - Projects & Prompting: study-path/transformers/05-projects-prompting.md
-          - 06 - Using Transformers (Practical): study-path/transformers/06-using-transformers.md
-          - 07 - Reasoning with LLMs: study-path/transformers/07-reasoning.md
-          - 08 - Intro to LLMs: study-path/transformers/08-llm-intro.md
-          - 09 - Preparing LLMs: study-path/transformers/09-llm-prep.md
-          - 10 - Advanced LLM Training: study-path/transformers/10-llm-advanced.md
-          - 11 - Specialized LLM Training: study-path/transformers/11-llm-specialized.md
-          - 12 - Final Deployment: study-path/transformers/12-llm-deployment.md
-      - LLM Ops:
-          - 01 - Getting Started: study-path/llmops/01-getting-started.md
-          - 02 - Pre-Deployment Strategies: study-path/llmops/02-pre-deployment.md
-          - 03 - MLOps Foundations: study-path/llmops/03-mlops-foundations.md
-          - 04 - Advanced Model Deployment: study-path/llmops/04-advanced-deployment.md
-          - 05 - ML Inference Optimization: study-path/llmops/05-inference-optimization.md
-          - 06 - Economics of Inference: study-path/llmops/06-economics.md
-          - 07 - Cluster Management: study-path/llmops/07-cluster-management.md
-          - 08 - Real-Time API Deployment: study-path/llmops/08-real-time-api.md
+  - Python: study-path/1-python/index.md
+  - Statistics: study-path/2-statistics/index.md
+  - DS & ML : study-path/3-datascience-machine-learning/index.md
+  - Transformers & Gen AI: study-path/4-transformers-generative-ai/index.md
+  - RAG + LangChain: study-path/5-rag-langchain/index.md
+  - LLM Ops: study-path/6-llmops/index.md
+  - AI Evaluation: study-path/7-ai-eval-engineering/index.md
   - Reference Hub:
+      - Overview: reference-hub/index.md
       - Foundation:
           - NLP Overview: reference-hub/foundation/nlp-overview.md
           - Transformers: reference-hub/foundation/transformers.md
@@ -55,3 +77,29 @@ nav:
           - Research Notes: reference-hub/knowledge/research.md
           - Tools & Libraries: reference-hub/knowledge/tools.md
           - Learning Links: reference-hub/knowledge/learning-links.md
+
+plugins:
+  - search
+  - git-revision-date-localized:
+      type: date
+      fallback_to_build_date: true
+      enable_creation_date: false
+      locale: en
+
+extra_css:
+  - styles/logo.css
+
+extra:
+  manifest: manifest.webmanifest
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/...
+
+extra_javascript:
+  - /generative-ai-study-hub/service-worker.js
+
+markdown_extensions:
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - toc
+  - admonition

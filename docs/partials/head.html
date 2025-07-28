@@ -1,0 +1,27 @@
+<!-- ✅ PWA Support: Manifest and Meta for iOS + Android -->
+<link rel="manifest" href="/generative-ai-study-hub/manifest.webmanifest" type="application/manifest+json" crossorigin="use-credentials" />
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('/generative-ai-study-hub/service-worker.js?v=1.0.2', {
+        scope: '/generative-ai-study-hub/'
+      }).then(function (registration) {
+        console.log('✅ ServiceWorker registered:', registration);
+        navigator.serviceWorker.getRegistrations().then(regs => {
+          console.log('🔍 Registered SWs:', regs);
+        });
+      }).catch(function (error) {
+        console.error('❌ ServiceWorker registration failed:', error);
+      });
+    });
+  }
+</script>
+
+<!-- Android: Theme color -->
+<meta name="theme-color" content="#1c1c1c" />
+
+<!-- iOS: Enable web app mode -->
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="apple-touch-icon" href="/generative-ai-study-hub/images/logo_192x192.png" />
