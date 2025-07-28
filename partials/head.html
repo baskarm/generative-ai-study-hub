@@ -1,5 +1,5 @@
 <!-- ✅ PWA Support: Manifest and Meta for iOS + Android -->
-<link rel="manifest" href="/generative-ai-study-hub/manifest.webmanifest" type="application/manifest+json" crossorigin="use-credentials">
+<link rel="manifest" href="/generative-ai-study-hub/manifest.webmanifest" type="application/manifest+json" crossorigin="use-credentials" />
 
 <script>
   if ('serviceWorker' in navigator) {
@@ -8,6 +8,12 @@
         scope: '/generative-ai-study-hub/'
       }).then(function (registration) {
         console.log('✅ ServiceWorker registered:', registration);
+
+        // ✅ Optional Debugging
+        navigator.serviceWorker.getRegistrations().then(regs => {
+          console.log('🔍 Registered SWs:', regs);
+        });
+
       }).catch(function (error) {
         console.error('❌ ServiceWorker registration failed:', error);
       });
