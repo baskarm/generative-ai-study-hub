@@ -8,9 +8,6 @@
         scope: '/generative-ai-study-hub/'
       }).then(function (registration) {
         console.log('✅ ServiceWorker registered:', registration);
-        navigator.serviceWorker.getRegistrations().then(regs => {
-          console.log('🔍 Registered SWs:', regs);
-        });
       }).catch(function (error) {
         console.error('❌ ServiceWorker registration failed:', error);
       });
@@ -18,10 +15,11 @@
   }
 </script>
 
-<!-- Android: Theme color -->
+<!-- Android -->
 <meta name="theme-color" content="#1c1c1c" />
 
-<!-- iOS: Enable web app mode -->
+<!-- iOS -->
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-<link rel="apple-touch-icon" href="/generative-ai-study-hub/images/logo_192x192.png" />
+<meta name="apple-mobile-web-app-title" content="AI Study Hub" />
+<link rel="apple-touch-icon" sizes="180x180" href="/generative-ai-study-hub/images/logo_180x180.png" />
