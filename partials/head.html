@@ -4,13 +4,15 @@
 <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function () {
-        navigator.serviceWorker.register('/generative-ai-study-hub/service-worker.js')
-          .then(function (registration) {
-            console.log('✅ ServiceWorker registered:', registration);
-          })
-          .catch(function (error) {
-            console.error('❌ ServiceWorker registration failed:', error);
-          });
+        navigator.serviceWorker.register('/generative-ai-study-hub/service-worker.js', {
+          scope: '/generative-ai-study-hub/'
+        })
+        .then(function (registration) {
+          console.log('✅ ServiceWorker registered:', registration);
+        })
+        .catch(function (error) {
+          console.error('❌ ServiceWorker registration failed:', error);
+        });
       });
     }
   </script>
