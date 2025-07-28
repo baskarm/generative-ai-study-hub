@@ -1421,6 +1421,19 @@
 <p>This is your central hub for learning and referencing Generative AI concepts. 
 Choose from the <strong>Study Path</strong> to go through structured topics or explore the <strong>Reference Hub</strong> for focused research and tooling insights.</p>
 <!-- Force MkDocs to include PWA assets in site/ output -->
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register(`${window.location.origin}/generative-ai-study-hub/service-worker.js`)
+        .then(function (registration) {
+          console.log('✅ Service Worker registered with scope:', registration.scope);
+        })
+        .catch(function (error) {
+          console.log('❌ Service Worker registration failed:', error);
+        });
+    });
+  }
+</script>
 
 
 
@@ -1542,7 +1555,7 @@ Choose from the <strong>Study Path</strong> to go through structured topics or e
     
       <script src="assets/javascripts/bundle.56ea9cef.min.js"></script>
       
-        <script src="service-worker.js"></script>
+        <script src="/generative-ai-study-hub/service-worker.js"></script>
       
     
   </body>
