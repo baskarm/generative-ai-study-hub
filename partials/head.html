@@ -2,20 +2,18 @@
 <link rel="manifest" href="/generative-ai-study-hub/manifest.webmanifest">
 
 <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', function () {
-        navigator.serviceWorker.register('/generative-ai-study-hub/service-worker.js', {
-          scope: '/generative-ai-study-hub/'
-        })
-        .then(function (registration) {
-          console.log('✅ ServiceWorker registered:', registration);
-        })
-        .catch(function (error) {
-          console.error('❌ ServiceWorker registration failed:', error);
-        });
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('/generative-ai-study-hub/service-worker.js', {
+        scope: '/generative-ai-study-hub/'
+      }).then(function (registration) {
+        console.log('✅ ServiceWorker registered:', registration);
+      }).catch(function (error) {
+        console.error('❌ ServiceWorker registration failed:', error);
       });
-    }
-  </script>
+    });
+  }
+</script>
 
 <!-- Android: Theme color -->
 <meta name="theme-color" content="#1c1c1c" />
@@ -23,6 +21,4 @@
 <!-- iOS: Enable web app mode -->
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
-<!-- iOS: Home screen icon -->
 <link rel="apple-touch-icon" href="/generative-ai-study-hub/images/logo_192x192.png" />

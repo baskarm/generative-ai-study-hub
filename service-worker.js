@@ -1,7 +1,7 @@
-<script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js', { scope: './' })
-      .then(reg => console.log('✅ ServiceWorker registered:', reg))
-      .catch(err => console.error('❌ ServiceWorker registration failed:', err));
-  }
-</script>
+self.addEventListener('install', function (e) {
+  console.log('[ServiceWorker] Installed');
+});
+
+self.addEventListener('fetch', function (event) {
+  event.respondWith(fetch(event.request));
+});
