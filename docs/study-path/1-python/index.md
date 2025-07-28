@@ -4,7 +4,7 @@ Welcome to the **Python** section of the Generative AI Study Hub. This foundatio
 
 ## 🧭 Topics Covered
 
-- [Introduction to Python](01-introduciton-python.md)
+- [Introduction to Python](01-introduction-python.md)
 - [Collection of Variables](02-collection-of-variables.md)  
 - [Conditional & Looping](03-conditional-looping.md)  
 - [Functions](04-functions.md)  

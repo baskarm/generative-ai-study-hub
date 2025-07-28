@@ -7,3 +7,18 @@ Choose from the **Study Path** to go through structured topics or explore the **
 <!-- Force MkDocs to include PWA assets in site/ output -->
 [manifest]: manifest.webmanifest
 [sw]: service-worker.js
+
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register(`${window.location.origin}/generative-ai-study-hub/service-worker.js`)
+        .then(function (registration) {
+          console.log('✅ Service Worker registered with scope:', registration.scope);
+        })
+        .catch(function (error) {
+          console.log('❌ Service Worker registration failed:', error);
+        });
+    });
+  }
+</script>

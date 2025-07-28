@@ -1,5 +1,6 @@
 site_name: Generative AI Study Hub
 site_url: https://baskarm.github.io/generative-ai-study-hub/
+use_directory_urls: false  # Ensures compatibility with GitHub Pages
 
 theme:
   name: material
@@ -93,7 +94,7 @@ extra:
   manifest: manifest.webmanifest
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/...
+      link: https://github.com/baskarm/generative-ai-study-hub
 
 extra_javascript:
   - /generative-ai-study-hub/service-worker.js
