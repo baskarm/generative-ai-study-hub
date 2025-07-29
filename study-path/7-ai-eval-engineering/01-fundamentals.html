@@ -18,7 +18,7 @@
     
     
       
-        <title>01 fundamentals - Generative AI Study Hub</title>
+        <title>📘 Chapter Summary: LLMs, Prompts, and Evaluation Basics - Generative AI Study Hub</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#citation-review-bommasani-et-al-2021-zaharia-et-al-2024" class="md-skip">
+        <a href="#chapter-summary-llms-prompts-and-evaluation-basics" class="md-skip">
           Skip to content
         </a>
       
@@ -105,7 +105,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              01 fundamentals
+              📘 Chapter Summary: LLMs, Prompts, and Evaluation Basics
             
           </span>
         </div>
@@ -1402,12 +1402,214 @@
 
 
 
-  <h1>01 fundamentals</h1>
-
-<h2 id="citation-review-bommasani-et-al-2021-zaharia-et-al-2024">📌 Citation Review: Bommasani et al. (2021) &amp; Zaharia et al. (2024)</h2>
+<h1 id="chapter-summary-llms-prompts-and-evaluation-basics">📘 Chapter Summary: LLMs, Prompts, and Evaluation Basics</h1>
+<h2 id="quick-navigation">📌 Quick Navigation</h2>
+<ul>
+<li><a href="#21-strengths-and-weaknesses-of-llms">2.1 Strengths and Weaknesses of LLMs</a></li>
+<li><a href="#22-prompting-fundamentals">2.2 Prompting Fundamentals</a></li>
+<li><a href="#23-defining-good-types-of-evaluation-metrics">2.3 Defining “Good”: Types of Evaluation Metrics</a></li>
+<li><a href="#24-foundation-models-vs-application-centric-evals">2.4 Foundation Models vs. Application-Centric Evals</a></li>
+<li><a href="#25-eliciting-labels-for-metric-computation">2.5 Eliciting Labels for Metric Computation</a></li>
+<li><a href="#26-summary">2.6 Summary</a></li>
+<li><a href="#27-glossary-of-terms">2.7 Glossary of Terms</a></li>
+<li><a href="#28-exercises">2.8 Exercises</a></li>
+<li><a href="#284-eliciting-labels-travel-assistant">2.8.4 Eliciting Labels (Travel Assistant)</a></li>
+<li><a href="#shankar-et-al-2024-2024d">Shankar et al 2024 2024d</a></li>
+<li><a href="#bommasani-et-al-2021-and-zaharia-et-al-2024">Bommasani et al 2021 and Zaharia et al 2024</a></li>
+<li><a href="#ward-and-feldstein-2024-status-analysis">Ward and Feldstein 2024 Status Analysis</a></li>
+<li><a href="#lian-et-al-2023-2025-generative-foundation-models-handbook">Lian et al 2023 2025 Generative Foundation Models Handbook</a></li>
+<li><a href="#hendrycks-et-al-2021-unsolved-problems-in-ml-safety">Hendrycks et al 2021 Unsolved Problems in ML Safety</a></li>
+<li><a href="#rein-et-al-2024-status-relevant-findings">Rein et al 2024 Status Relevant Findings</a></li>
+<li><a href="#jain-et-al-2025-status-related-works">Jain et al 2025 Status Related Works</a></li>
+</ul>
+<hr />
+<h2 id="21-strengths-and-weaknesses-of-llms">2.1 Strengths and Weaknesses of LLMs</h2>
+<ul>
+<li><strong>Strengths</strong>: LLMs produce fluent, coherent, grammatically correct text; excel in summarization, translation, editing, etc.</li>
+<li><strong>Weaknesses</strong>:</li>
+<li>Limited algorithmic generalization (Qian et al., 2022)</li>
+<li>Effective context window smaller than expected (Li et al., 2024)</li>
+<li>Prompt sensitivity (Sclar et al., 2024)</li>
+<li>Probabilistic output = inconsistent results</li>
+<li>Hallucination risk (Kalai &amp; Vempala, 2024)</li>
+</ul>
+<blockquote>
+<p>📌 <strong>Key Takeaway 2.1</strong>: Treat LLMs as powerful but fallible tools—leverage their strengths while anticipating weaknesses.</p>
+</blockquote>
+<h2 id="back-to-top"><a href="#quick-navigation">🔼 Back to Top</a></h2>
+<h2 id="22-prompting-fundamentals">2.2 Prompting Fundamentals</h2>
+<p>A good prompt includes:
+1. <strong>Role and Objective</strong> – Define persona and goal<br />
+2. <strong>Instructions</strong> – Clear, bullet-form directives<br />
+3. <strong>Context</strong> – Include text, data, background<br />
+4. <strong>Examples</strong> – Few-shot guidance<br />
+5. <strong>Reasoning Steps</strong> – CoT (Chain of Thought)<br />
+6. <strong>Formatting Constraints</strong> – JSON, paragraph, etc.<br />
+7. <strong>Delimiters &amp; Structure</strong> – Markdown headers, tags  </p>
+<h2 id="back-to-top_1"><a href="#quick-navigation">🔼 Back to Top</a></h2>
+<h2 id="23-defining-good-types-of-evaluation-metrics">2.3 Defining “Good”: Types of Evaluation Metrics</h2>
+<ul>
+<li><strong>Reference-Based</strong>: Compare output to gold labels  </li>
+<li>Exact match, keyword check, SQL execution  </li>
+<li><strong>Reference-Free</strong>: Evaluate quality without gold labels  </li>
+<li>Validity of code, absence of hallucination, stylistic adherence  </li>
+<li>Examples: LLM-generated API response uses valid schema  </li>
+</ul>
+<h2 id="back-to-top_2"><a href="#quick-navigation">🔼 Back to Top</a></h2>
+<h2 id="24-foundation-models-vs-application-centric-evals">2.4 Foundation Models vs. Application-Centric Evals</h2>
+<ul>
+<li><strong>Foundation Eval</strong>: Benchmarks like MMLU (Hendrycks et al., 2021), HELM, GSM8k  </li>
+<li><strong>Application Eval</strong>: Tailored to specific pipeline goals like legal document fidelity  </li>
+</ul>
+<blockquote>
+<p>💡 Tip: Don’t blindly trust benchmarks—build evals for your specific pipeline.</p>
+</blockquote>
+<hr />
+<h2 id="25-eliciting-labels-for-metric-computation">2.5 Eliciting Labels for Metric Computation</h2>
+<ul>
+<li><strong>Direct Grading</strong>: Human/LLM scoring using rubric  </li>
+<li><strong>Pairwise Comparison</strong>: A vs B  </li>
+<li><strong>Ranking</strong>: A &gt; B &gt; C based on rubric dimension  </li>
+</ul>
+<blockquote>
+<p>📌 <strong>Key Takeaway 2.2</strong>: Combine direct grading, pairwise, and ranking for rich feedback.</p>
+</blockquote>
+<h2 id="back-to-top_3"><a href="#quick-navigation">🔼 Back to Top</a></h2>
+<h2 id="26-summary">2.6 Summary</h2>
+<p>This chapter presents a comprehensive framework for evaluating LLMs, emphasizing:
+- Prompt design fundamentals<br />
+- Reference-based vs reference-free metrics<br />
+- Foundation vs application evaluations<br />
+- Label elicitation techniques (grading, ranking)  </p>
+<hr />
+<h2 id="27-glossary-of-terms">2.7 Glossary of Terms</h2>
+<ul>
+<li><strong>LLM</strong>: Large Language Model  </li>
+<li><strong>Foundation Model</strong>: Pretrained for general use  </li>
+<li><strong>Token</strong>: Unit of language  </li>
+<li><strong>Prompt</strong>: Instructional input  </li>
+<li><strong>Attention</strong>: Focus mechanism in Transformers  </li>
+<li><strong>SFT/RLHF/DPO</strong>: Post-training strategies  </li>
+</ul>
+<h2 id="back-to-top_4"><a href="#quick-navigation">🔼 Back to Top</a></h2>
+<h2 id="28-exercises">2.8 Exercises</h2>
+<h3 id="1-prompt-engineering">1. Prompt Engineering</h3>
+<ul>
+<li>Zero-shot: “Summarize the following email…”  </li>
+<li>One-shot: Add example email and response  </li>
+</ul>
+<h3 id="2-metric-classification">2. Metric Classification</h3>
+<ul>
+<li>a: Reference-based  </li>
+<li>b: Reference-free  </li>
+<li>c: Reference-based  </li>
+<li>d: Reference-free  </li>
+</ul>
+<h3 id="3-eval-types">3. Eval Types</h3>
+<ul>
+<li>a: MMLU  </li>
+<li>b: Rate summaries using legal domain reviewers  </li>
+</ul>
+<p><a href="#quick-navigation">🔼 Back to Top</a></p>
+<h3 id="284-eliciting-labels-travel-assistant">2.8.4 Eliciting Labels (Travel Assistant)</h3>
+<p>You need to evaluate whether a travel assistant’s flight recommendations respect the user’s budget constraint.</p>
+<h4 id="a-direct-grading-rubric">(a) Direct-Grading Rubric:</h4>
+<ul>
+<li><strong>Within Budget</strong>: All suggested flights have price ≤ user's maxPrice.  </li>
+<li><strong>Over Budget</strong>: At least one suggested flight exceeds the user's maxPrice.  </li>
+</ul>
+<h4 id="b-pairwise-comparison-instruction">(b) Pairwise-Comparison Instruction:</h4>
+<p><strong>Sample Prompt</strong>:</p>
+<blockquote>
+<p>You are given a user query: "Find flights under $300 from JFK to LAX."<br />
+You also have two lists of three flight options (A and B).<br />
+Choose which list better respects the budget constraint and reply with "A" or "B," followed by a one-sentence justification.</p>
+</blockquote>
+<h4 id="c-when-to-use">(c) When to Use:</h4>
+<ul>
+<li><strong>Direct grading</strong> is ideal when you need an absolute adherence rate and the criterion is unambiguous.  </li>
+<li><strong>Pairwise comparison</strong> is preferable for borderline cases or when annotators find relative judgments easier than binary labels.  </li>
+</ul>
+<p><a href="#quick-navigation">🔼 Back to Top</a></p>
+<h2 id="shankar-et-al-2024-2024d">Shankar et al 2024 2024d</h2>
+<hr />
+<h2 id="1-shankar-sim-20242025-generative-ai-on-the-loose-impact-of-improved-ai-and-expert-oversight-on-knowledge-sharing">1. Shankar &amp; Sim (2024/2025) – <em>Generative AI on the Loose: Impact of Improved AI and Expert Oversight on Knowledge Sharing</em></h2>
+<h3 id="overview">📖 Overview</h3>
+<p>This empirical study analyzes the interplay between <strong>advanced GenAI systems (e.g. GPT‑4)</strong> and <strong>expert moderation</strong>, exploring how their combination influences knowledge-sharing on platforms like Stack Overflow.</p>
+<h3 id="core-findings">🧠 Core Findings</h3>
+<ul>
+<li>Combining high-performing GenAI output with strict expert oversight <strong>reduces content volume</strong> but significantly <strong>improves quality</strong> and reliability.</li>
+<li>When moderation is relaxed, there's a surge in contributions—primarily lower-quality or hallucinated content.</li>
+<li>Insight on skill-level variations: novice users benefit most from expert moderation in maintaining quality.</li>
+</ul>
+<h3 id="methodology">⚙️ Methodology</h3>
+<ul>
+<li>Natural experiment around GPT‑4 adoption and Stack Overflow policy changes.</li>
+<li>Mixed-method: measuring variations in content volume and quality across user skill tiers.</li>
+</ul>
+<h3 id="implications">🎯 Implications</h3>
+<ul>
+<li>GenAI alone cannot guarantee content quality; <strong>moderation remains essential</strong>, especially for novice contributors.</li>
+<li>Platform design decisions (e.g. moderation policies) significantly influence the effectiveness and trustworthiness of GenAI-generated content.</li>
+</ul>
+<h3 id="reference">📄 Reference</h3>
+<ul>
+<li>Shankar &amp; Sim (June 2024 / Feb 2025 revision), SSRN: <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4867815">Generative AI on the Loose</a></li>
+</ul>
+<p><a href="#quick-navigation">🔼 Back to Top</a></p>
+<hr />
+<h2 id="2-shankar-et-al-2024d-clarification">2. Shankar et al. (2024d) – Clarification</h2>
+<p>As of July 2025, no separate, clearly titled publication labeled <em>“Shankar et al. (2024d)”</em> is indexed under generative AI, LLMs, or AI safety literature. It is possible that:
+- “2024d” refers to the <strong>fourth revision or release</strong> of the same “Generative AI on the Loose” paper.
+- Or it refers to an internal or upcoming publication yet to be made public.</p>
+<h3 id="known-public-record">✅ Known Public Record</h3>
+<p>The Shankar &amp; Sim (2024/2025) SSRN paper appears to be the most likely source being referenced.</p>
+<hr />
+<h2 id="summary-table">📊 Summary Table</h2>
+<table>
+<thead>
+<tr>
+<th>Paper</th>
+<th>Year</th>
+<th>Focus Area</th>
+<th>Key Contribution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shankar &amp; Sim – GenAI Study</td>
+<td>2024/2025</td>
+<td>GenAI adoption + moderation</td>
+<td>Expert oversight retains quality, even with GenAI</td>
+</tr>
+<tr>
+<td>Shankar et al. (2024d)</td>
+<td>2024</td>
+<td>[Not Publicly Available]</td>
+<td>Possibly a revision alias of above</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="related-works">🔗 Related Works</h2>
+<ul>
+<li><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4867815">SSRN – Shankar &amp; Sim Paper</a></li>
+<li><a href="https://arxiv.org/abs/2307.07367">Rio-Chanona et al. (2023) – LLM Impact on Public Q&amp;A</a></li>
+<li><a href="https://arxiv.org/abs/2308.02312">Kabir et al. (CHI 2024) – Hallucinations in Code Answers</a></li>
+</ul>
+<hr />
+<h2 id="further-reading">📚 Further Reading</h2>
+<ul>
+<li><a href="https://hai.stanford.edu/ai-index/2025-ai-index-report">Stanford HAI – AI Index 2025</a></li>
+<li><a href="https://montrealethics.ai">Montreal AI Ethics Institute</a></li>
+<li><a href="https://stackoverflow.blog">Stack Overflow’s GenAI Policy Changes</a></li>
+</ul>
+<hr />
+<p><a href="#quick-navigation">🔼 Back to Top</a></p>
+<h2 id="bommasani-et-al-2021-and-zaharia-et-al-2024">Bommasani et al 2021 and Zaharia et al 2024</h2>
 <hr />
 <h2 id="1-bommasani-et-al-2021-on-the-opportunities-and-risks-of-foundation-models">1. Bommasani et al. (2021) – <em>“On the Opportunities and Risks of Foundation Models”</em></h2>
-<h3 id="overview">📖 Overview</h3>
+<h3 id="overview_1">📖 Overview</h3>
 <p>This landmark Stanford report introduced the term <strong>foundation models</strong>, referring to large-scale models pretrained using self-supervised learning that can be adapted for a wide range of downstream tasks.</p>
 <h3 id="key-contributions">🧠 Key Contributions</h3>
 <ul>
@@ -1427,13 +1629,14 @@
 <ul>
 <li>Education, healthcare, legal systems, and human-AI interaction.</li>
 </ul>
-<h3 id="reference">📄 Reference</h3>
+<h3 id="reference_1">📄 Reference</h3>
 <ul>
 <li><a href="https://arxiv.org/abs/2108.07258">Bommasani et al., 2021 (arXiv)</a></li>
 </ul>
 <hr />
+<p><a href="#quick-navigation">🔼 Back to Top</a></p>
 <h2 id="2-zaharia-et-al-2024-compound-ai-systems">2. Zaharia et al. (2024) – <em>Compound AI Systems</em></h2>
-<h3 id="overview_1">📖 Overview</h3>
+<h3 id="overview_2">📖 Overview</h3>
 <p>This paper presents a structured framework for building <strong>compound AI systems</strong> — orchestration of LLMs, retrievers, tools, and planners to perform complex workflows beyond single-model prompting.</p>
 <h3 id="core-architecture">🧩 Core Architecture</h3>
 <ul>
@@ -1451,11 +1654,12 @@
 <ul>
 <li>Used in tool-augmented LLM agents, retrieval-augmented generation (RAG), and real-time business pipelines.</li>
 </ul>
-<h3 id="reference_1">📄 Reference</h3>
+<h3 id="reference_2">📄 Reference</h3>
 <ul>
 <li><a href="https://arxiv.org/abs/2406.00584">Zaharia et al., 2024 (arXiv)</a></li>
 </ul>
 <hr />
+<p><a href="#quick-navigation">🔼 Back to Top</a></p>
 <h2 id="comparison-table">📊 Comparison Table</h2>
 <table>
 <thead>
@@ -1488,21 +1692,22 @@
 </tbody>
 </table>
 <hr />
-<h2 id="further-reading">🔗 Further Reading</h2>
+<h2 id="further-reading_1">🔗 Further Reading</h2>
 <ul>
 <li><a href="https://crfm.stanford.edu/">Foundation Models - Stanford CRFM</a></li>
 <li><a href="https://huggingface.co/docs/transformers/index">Hugging Face Transformers</a></li>
 <li><a href="https://bair.berkeley.edu/blog/2024/02/18/compound-ai-systems/">Compound AI Systems Blog - BAIR</a></li>
 <li><a href="https://github.com/microsoft/DeepSpeed">DeepSpeed GitHub</a></li>
 </ul>
-<h2 id="citation-review-ward-feldstein-2024-status-analysis">📌 Citation Review: Ward &amp; Feldstein (2024) – Status &amp; Analysis</h2>
+<p><a href="#quick-navigation">🔼 Back to Top</a></p>
+<h2 id="ward-and-feldstein-2024-status-analysis">Ward and Feldstein 2024 Status Analysis</h2>
 <hr />
 <h3 id="summary">❗ Summary</h3>
 <p>A direct publication titled <strong>"Ward and Feldstein, 2024"</strong> could not be located in the academic databases or preprint servers (e.g., arXiv) for generative AI or large language model research as of July 2025.</p>
 <p>However, the following are two closely related works potentially referenced incorrectly or tangentially relevant:</p>
 <hr />
 <h2 id="1-steven-feldstein-ai-governance-surveillance">1. Steven Feldstein – <em>AI Governance &amp; Surveillance</em></h2>
-<h3 id="overview_2">📖 Overview</h3>
+<h3 id="overview_3">📖 Overview</h3>
 <p>Steven Feldstein is known for his extensive research on the global political implications of AI, focusing on surveillance technologies and digital repression.</p>
 <h3 id="key-concepts">🧠 Key Concepts</h3>
 <ul>
@@ -1515,9 +1720,9 @@
 <li><a href="https://www.brookings.edu/experts/steven-feldstein/">Brookings Institution - AI and Digital Authoritarianism</a></li>
 <li><a href="https://arxiv.org/search/?searchtype=author&amp;query=Feldstein%2C+S">Journal articles on AI governance and policy</a></li>
 </ul>
-<hr />
+<h2 id="back-to-top_5"><a href="#quick-navigation">🔼 Back to Top</a></h2>
 <h2 id="2-francis-rhys-ward-2025-towards-a-theory-of-ai-personhood">2. Francis Rhys Ward (2025) – <em>Towards a Theory of AI Personhood</em></h2>
-<h3 id="overview_3">📖 Overview</h3>
+<h3 id="overview_4">📖 Overview</h3>
 <p>This paper explores philosophical and legal frameworks for <strong>AI personhood</strong>, questioning if and when AI models should be treated as entities with moral and legal standing.</p>
 <h3 id="key-topics">🧩 Key Topics</h3>
 <ul>
@@ -1527,7 +1732,7 @@
 </ul>
 <h3 id="discussion">🧪 Discussion</h3>
 <p>Raises questions essential to AGI safety, alignment research, and AI ethics in legal systems.</p>
-<h3 id="reference_2">📄 Reference</h3>
+<h3 id="reference_3">📄 Reference</h3>
 <ul>
 <li><a href="https://arxiv.org/abs/2501.13533">Ward, F.R. 2025 (arXiv)</a></li>
 </ul>
@@ -1561,6 +1766,7 @@
 </tbody>
 </table>
 <hr />
+<p><a href="#quick-navigation">🔼 Back to Top</a></p>
 <h2 id="further-exploration">🔗 Further Exploration</h2>
 <ul>
 <li><a href="https://hai.stanford.edu/">Stanford HAI – AI &amp; Policy</a></li>
@@ -1572,6 +1778,306 @@
 <blockquote>
 <p>Please share more context or keywords if you're referencing a different or unpublished "Ward &amp; Feldstein (2024)" paper.</p>
 </blockquote>
+<p><a href="#quick-navigation">🔼 Back to Top</a></p>
+<h2 id="lian-et-al-2023-2025-generative-foundation-models-handbook">Lian et al 2023 2025 Generative Foundation Models Handbook</h2>
+<hr />
+<h2 id="1-lian-junbo-jacob-2025-generative-foundation-models-a-comprehensive-beginners-handbook">1. Lian, Junbo Jacob (2025<em>) – </em>Generative Foundation Models: A Comprehensive Beginner’s Handbook*</h2>
+<h3 id="overview_5">📖 Overview</h3>
+<p>This handbook offers an <strong>extensive, hands‑on exploration</strong> of modern generative foundation models. Covering theoretical foundations and practical implementations, it dives into architectures vital for generative AI.</p>
+<blockquote>
+<p>*Published May 2025 on SSRN, often referred to in drafts as “2023”</p>
+</blockquote>
+<h3 id="covered-architectures">🧠 Covered Architectures</h3>
+<ul>
+<li><strong>Transformer</strong> for sequence modeling  </li>
+<li><strong>Vision Transformer (ViT)</strong> for image representation  </li>
+<li><strong>Mamba</strong> – linear-time modeling using state‑space methods  </li>
+<li><strong>U‑Net</strong> for image synthesis tasks  </li>
+<li><strong>Denoising Diffusion Probabilistic Models (DDPMs)</strong>  </li>
+<li><strong>Diffusion Transformer (DiT)</strong> – transformer-based diffusion modeling  </li>
+<li><strong>Retentive Network (RetNet)</strong> – attention-free sequence modeling  </li>
+<li><strong>Latent Diffusion Models (LDMs)</strong> for high‑resolution autoencoding  </li>
+<li><strong>Text‑to‑3D techniques</strong> like <em>DreamFusion</em> and <em>Magic3D</em>  <a href="https://www.researchgate.net/publication/391881886_Generative_Foundation_Models_A_Comprehensive_Beginner%27s_Handbook?utm_source=chatgpt.com">oai_citation:0‡ResearchGate</a></li>
+</ul>
+<h3 id="features-format">📚 Features &amp; Format</h3>
+<ul>
+<li>Intuitive overviews followed by rigorous mathematical formulations  </li>
+<li>PyTorch‑style pseudo‑code for each core architecture  </li>
+<li>Consistent notation across chapters (e.g. bold vectors, italic scalars)  </li>
+<li>Reflection questions at the end of every section to deepen understanding  <a href="https://www.researchgate.net/publication/391881886_Generative_Foundation_Models_A_Comprehensive_Beginner%27s_Handbook?utm_source=chatgpt.com">oai_citation:1‡ResearchGate</a></li>
+</ul>
+<hr />
+<h2 id="why-this-matter">🔍 Why This Matter</h2>
+<ul>
+<li>Provides a <strong>unified learning path</strong> through the main generative model families  </li>
+<li>Bridges <strong>language</strong>, <strong>image</strong>, and <strong>3D generation</strong>, contextualizing modern advancements  </li>
+<li>Ideal for AI learners, engineers, and researchers looking to transition from theory to code</li>
+</ul>
+<hr />
+<p><a href="#quick-navigation">🔼 Back to Top</a></p>
+<h2 id="suggested-usage">⚙️ Suggested Usage</h2>
+<table>
+<thead>
+<tr>
+<th>Use Case</th>
+<th>Recommended Approach</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Learning foundational theory</td>
+<td>Study chapters sequentially, follow pseudo‑code</td>
+</tr>
+<tr>
+<td>Quick reference</td>
+<td>Use as a concept lookup for ViT, RetNet, DiT</td>
+</tr>
+<tr>
+<td>Classroom or workshops</td>
+<td>Leverage end‑chapter questions for engagement</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="reference-link">🌐 Reference Link</h2>
+<ul>
+<li><a href="https://www.researchgate.net/publication/391881886_Generative_Foundation_Models_A_Comprehensive_Beginner%27s_Handbook">Lian, J.J. “Generative Foundation Models Handbook”, SSRN May 2025</a></li>
+</ul>
+<hr />
+<h2 id="related-works-future-reading">📖 Related Works &amp; Future Reading</h2>
+<ul>
+<li><a href="https://arxiv.org/abs/2108.07258">Foundation Models Overview – Bommasani et al. 2021</a>  </li>
+<li><a href="https://arxiv.org/abs/2302.13971">LLaMA: Open Foundation Language Models – Touvron et al. 2023</a>  <a href="https://arxiv.org/abs/2302.13971?utm_source=chatgpt.com">oai_citation:2‡arXiv</a> <a href="https://arxiv.org/html/2405.11029v1?utm_source=chatgpt.com">oai_citation:3‡arXiv</a> <a href="https://www.davidpublisher.com/Public/uploads/Contribute/66d66f9901eb0.pdf?utm_source=chatgpt.com">oai_citation:4‡davidpublisher.com</a> <a href="https://www.researchgate.net/publication/391881886_Generative_Foundation_Models_A_Comprehensive_Beginner%27s_Handbook?utm_source=chatgpt.com">oai_citation:5‡ResearchGate</a> <a href="https://arxiv.org/abs/2108.07258?utm_source=chatgpt.com">oai_citation:6‡arXiv</a>  </li>
+<li><a href="https://arxiv.org/html/2405.11029v1">Systematic Review of Generative AI Models (2018–2023)</a>  <a href="https://arxiv.org/html/2405.11029v1?utm_source=chatgpt.com">oai_citation:7‡arXiv</a></li>
+</ul>
+<hr />
+<blockquote>
+<p><em>Note: The original document is uploaded to SSRN in May 2025 but refers to models and developments dating from 2023, which may explain alternate listings.</em></p>
+</blockquote>
+<p><a href="#quick-navigation">🔼 Back to Top</a></p>
+<h2 id="hendrycks-et-al-2021-unsolved-problems-in-ml-safety">Hendrycks et al 2021 Unsolved Problems in ML Safety</h2>
+<hr />
+<h2 id="1-hendrycks-carlini-schulman-steinhardt-2021-unsolved-problems-in-ml-safety">1. Hendrycks, Carlini, Schulman &amp; Steinhardt (2021) – <em>“Unsolved Problems in ML Safety”</em></h2>
+<h3 id="overview_6">📖 Overview</h3>
+<p>This foundational arXiv paper establishes a <strong>technical roadmap for machine learning safety research</strong>, particularly focused on the new challenges posed by large-scale models.</p>
+<h3 id="core-safety-research-areas">🧠 Core Safety Research Areas</h3>
+<p>The authors identify <strong>four key safety problems</strong>:</p>
+<ul>
+<li><strong>Robustness</strong>: Ensuring models behave reliably under adversarial or unforeseen conditions.  </li>
+<li><strong>Monitoring</strong>: Detecting anomalies, misuse, or unintended behaviors early.  </li>
+<li><strong>Alignment</strong>: Designing models that adhere to human values and avoid harmful behavior.  </li>
+<li><strong>Systemic Safety</strong>: Addressing risks from deployment contexts, organizational failures, and complex systems.  <a href="https://arxiv.org/abs/2109.13916?utm_source=chatgpt.com">oai_citation:0‡arXiv</a> <a href="https://montrealethics.ai/unsolved-problems-in-ml-safety/?utm_source=chatgpt.com">oai_citation:1‡Montreal AI Ethics Institute</a></li>
+</ul>
+<p><a href="#quick-navigation">🔼 Back to Top</a></p>
+<h3 id="motivation-impact">⚠️ Motivation &amp; Impact</h3>
+<ul>
+<li>The paper highlights safety gaps emerging as ML systems grow more capable.  </li>
+<li>It provides concrete research directions under each category, emphasizing prevention before deployment catastrophes.  <a href="https://arxiv.org/abs/2109.13916?utm_source=chatgpt.com">oai_citation:2‡arXiv</a></li>
+</ul>
+<h3 id="prominent-contributions">🧪 Prominent Contributions</h3>
+<ul>
+<li>Formalizes an ML safety framework centered on foundational research challenges.  </li>
+<li>Attracts a research community around clearly defined technical safety goals.  </li>
+<li>Informs subsequent safety documents and organizations, including the Center for AI Safety.  <a href="https://montrealethics.ai/unsolved-problems-in-ml-safety/?utm_source=chatgpt.com">oai_citation:3‡Montreal AI Ethics Institute</a> <a href="https://en.wikipedia.org/wiki/Center_for_AI_Safety?utm_source=chatgpt.com">oai_citation:4‡Wikipedia</a></li>
+</ul>
+<h3 id="references">📄 References</h3>
+<ul>
+<li>Hendrycks, D., Carlini, N., Schulman, J., &amp; Steinhardt, J. <em>Unsolved Problems in ML Safety</em> (arXiv, Sep 2021)  <a href="https://arxiv.org/abs/2109.13916?utm_source=chatgpt.com">oai_citation:5‡arXiv</a></li>
+</ul>
+<hr />
+<p><a href="#quick-navigation">🔼 Back to Top</a></p>
+<h2 id="related-research-by-hendrycks">🔗 Related Research by Hendrycks</h2>
+<ul>
+<li><strong>“An Overview of Catastrophic AI Risks”</strong> — Hendrycks, Mazeika &amp; Woodside (2023): Categorizes existential AI risks into malicious use, AI race dynamics, organizational failures, and rogue systems.  <a href="https://arxiv.org/abs/2306.12001?utm_source=chatgpt.com">oai_citation:6‡arXiv</a>  </li>
+<li><strong>ETHICS Benchmark (ICLR 2021)</strong> — Aligning AI with shared human values (Hendrycks et al.) focused on modeling commonsense ethics and fairness.  <a href="https://github.com/hendrycks/ethics?utm_source=chatgpt.com">oai_citation:7‡GitHub</a>  </li>
+</ul>
+<hr />
+<h2 id="snapshot-overview">📊 Snapshot Overview</h2>
+<table>
+<thead>
+<tr>
+<th>Paper / Topic</th>
+<th>Year</th>
+<th>Focus Area</th>
+<th>Core Ideas</th>
+<th>Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>Unsolved Problems in ML Safety</em></td>
+<td>2021</td>
+<td>ML Safety Framework</td>
+<td>Robustness, Monitoring, Alignment, Systemic Safety</td>
+<td>Shaped technical safety research agendas and priorities</td>
+</tr>
+<tr>
+<td><em>Catastrophic AI Risks</em></td>
+<td>2023</td>
+<td>Risk Classification</td>
+<td>Scenarios for misuse, race, organizational &amp; agent risks</td>
+<td>Informs policy and risk mitigation strategies</td>
+</tr>
+<tr>
+<td><em>ETHICS Benchmark</em> (ICLR 2021)</td>
+<td>2021</td>
+<td>Moral Alignment</td>
+<td>Commonsense ethics across value systems</td>
+<td>Dataset for evaluating AI ethical reasoning</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><a href="#quick-navigation">🔼 Back to Top</a></p>
+<h2 id="why-this-paper-matters">🟢 Why This Paper Matters</h2>
+<ul>
+<li>Establishes a <strong>technical roadmap</strong> applied widely throughout both academia and industry.  </li>
+<li>Prioritizes <strong>problem-driven research</strong> over speculative philosophy or policy debates.  </li>
+<li>Continues to inform later frameworks and risk assessments across AI safety initiatives.</li>
+</ul>
+<hr />
+<h2 id="further-reading_2">📚 Further Reading</h2>
+<ul>
+<li><a href="https://arxiv.org/abs/2109.13916">Hendrycks et al., <em>Unsolved Problems in ML Safety</em> (arXiv)</a>  <a href="https://arxiv.org/abs/2109.13916?utm_source=chatgpt.com">oai_citation:8‡arXiv</a> <a href="https://en.wikipedia.org/wiki/Dan_Hendrycks?utm_source=chatgpt.com">oai_citation:9‡Wikipedia</a> <a href="https://arxiv.org/abs/2306.12001?utm_source=chatgpt.com">oai_citation:10‡arXiv</a> <a href="https://ui.adsabs.harvard.edu/abs/2021arXiv210913916H/abstract?utm_source=chatgpt.com">oai_citation:11‡Astrophysics Data System</a> <a href="https://github.com/hendrycks/ethics?utm_source=chatgpt.com">oai_citation:12‡GitHub</a>  </li>
+<li><a href="https://arxiv.org/abs/2306.12001">Hendrycks et al., <em>An Overview of Catastrophic AI Risks</em> (arXiv)</a>  <a href="https://arxiv.org/abs/2306.12001?utm_source=chatgpt.com">oai_citation:13‡arXiv</a>  </li>
+<li><a href="https://github.com/hendrycks/ethics">ETHICS Benchmark – Aligning AI with Shared Human Values (ICLR 2021)</a>  <a href="https://github.com/hendrycks/ethics?utm_source=chatgpt.com">oai_citation:14‡GitHub</a>  </li>
+<li><a href="https://montrealethics.ai/unsolved-problems-in-ml-safety/">Montreal AI Ethics Institute – Unsolved Problems in ML Safety Summary</a>  <a href="https://montrealethics.ai/unsolved-problems-in-ml-safety/?utm_source=chatgpt.com">oai_citation:15‡Montreal AI Ethics Institute</a>  </li>
+<li><a href="https://en.wikipedia.org/wiki/Center_for_AI_Safety">Center for AI Safety Overview (Dan Hendrycks)</a>  <a href="https://en.wikipedia.org/wiki/Center_for_AI_Safety?utm_source=chatgpt.com">oai_citation:16‡Wikipedia</a>  </li>
+</ul>
+<p><a href="#quick-navigation">🔼 Back to Top</a></p>
+<h2 id="rein-et-al-2024-status-relevant-findings">Rein et al 2024 Status Relevant Findings</h2>
+<hr />
+<h3 id="summary_1">❗ Summary</h3>
+<p>No exact match was found for a standalone academic paper titled <strong>"Rein et al., 2024"</strong> in the context of large language models or generative AI as of July 2025. However, two references may relate to the citation:</p>
+<hr />
+<h2 id="1-rein-cvpr-2024-efficient-fine-tuning-of-vision-foundation-models">1. REIN (CVPR 2024) – Efficient Fine-Tuning of Vision Foundation Models</h2>
+<h3 id="overview_7">📖 Overview</h3>
+<p>The REIN method, introduced by <strong>Wei et al., 2024</strong>, presents a <strong>parameter-efficient fine-tuning technique</strong> for Vision Foundation Models (VFMs), enabling high-performance semantic segmentation with minimal training overhead.</p>
+<h3 id="key-features">🧠 Key Features</h3>
+<ul>
+<li>Uses <strong>learnable instance tokens</strong> to fine-tune models like <strong>ConvNeXt</strong> and <strong>DINOv2</strong>.</li>
+<li>Achieves strong generalization across domains like <strong>Cityscapes</strong> and <strong>Cross-Organ</strong> with &lt;1% additional parameters.</li>
+<li>Demonstrates scalable adaptation without retraining base vision encoders.</li>
+</ul>
+<h3 id="reference_4">📄 Reference</h3>
+<ul>
+<li><a href="https://arxiv.org/abs/2312.04265">Wei et al., 2024 - REIN on arXiv</a></li>
+</ul>
+<hr />
+<p><a href="#quick-navigation">🔼 Back to Top</a></p>
+<h2 id="2-rein-et-al-2023-benchmark-reference-indirection">2. Rein et al., 2023 – Benchmark Reference (Indirection)</h2>
+<h3 id="context">🧩 Context</h3>
+<p>Some benchmark papers in 2024 (e.g., GPQA and MMLU-X evaluations) cite <strong>“Rein et al., 2023”</strong> in passing, especially regarding expert-level generalization and metric formulation.</p>
+<h3 id="limitation">⚠️ Limitation</h3>
+<p>No formal standalone paper for <strong>Rein et al., 2024</strong> appears indexed or published as of this writing. It’s possible the citation refers to an unpublished draft or internal benchmark suite.</p>
+<hr />
+<h2 id="comparative-snapshot_1">📊 Comparative Snapshot</h2>
+<table>
+<thead>
+<tr>
+<th>Identifier / Topic</th>
+<th>Year</th>
+<th>Focus Area</th>
+<th>Contribution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>REIN (Wei et al.)</td>
+<td>2024</td>
+<td>Vision Model Fine-Tuning</td>
+<td>Efficient adaptation of ConvNeXt, DINOv2 for segmentation tasks</td>
+</tr>
+<tr>
+<td>Rein (Benchmark Reference)</td>
+<td>2023</td>
+<td>Evaluation Metrics (Cited)</td>
+<td>Possibly referenced in benchmark tables or summary figures</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><a href="#quick-navigation">🔼 Back to Top</a></p>
+<h2 id="suggested-follow-up">🔗 Suggested Follow-Up</h2>
+<ul>
+<li><a href="https://github.com/w1oves/REIN">REIN GitHub Repository</a></li>
+<li><a href="https://arxiv.org/abs/2312.04265">Wei et al., REIN Paper (arXiv)</a></li>
+<li><a href="https://arxiv.org/abs/2505.07395">Cross-domain Evaluation Benchmarks (MMLU-X, GPQA)</a></li>
+</ul>
+<blockquote>
+<p>If you have more details about the citation (title, domain, authors), I can pinpoint the correct paper.</p>
+</blockquote>
+<p><a href="#quick-navigation">🔼 Back to Top</a></p>
+<h2 id="jain-et-al-2025-status-related-works">Jain et al 2025 Status Related Works</h2>
+<hr />
+<h3 id="summary_2">❗ Summary</h3>
+<p>As of July 2025, a definitive publication titled <strong>"Jain et al., 2025"</strong> in the field of generative AI or large language models has not been identified in open academic databases. However, several works authored by researchers with the surname <em>Jain</em> are potentially relevant depending on the context.</p>
+<hr />
+<h2 id="1-r-jain-a-jain-2024-generative-ai-in-writing-research-papers">1. R. Jain &amp; A. Jain (2024) – <em>Generative AI in Writing Research Papers</em></h2>
+<h3 id="overview_8">📖 Overview</h3>
+<p>This paper investigates how generative AI tools (e.g., GPT) impact scholarly writing, introducing a <strong>new type of algorithmic bias</strong> and raising concerns about authorship, accuracy, and academic integrity.</p>
+<h3 id="key-points">🧠 Key Points</h3>
+<ul>
+<li>Generative text may introduce <strong>fabricated references</strong> and unverifiable claims.</li>
+<li>Raises the question: should GenAI-assisted papers require disclosure or rejection?</li>
+<li>Discusses uncertainty introduced into the peer review system by LLMs.</li>
+</ul>
+<h3 id="reference_5">📄 Reference</h3>
+<ul>
+<li><a href="https://www.researchgate.net/publication/382732009_Generative_AI_in_Writing_Research_Papers_A_New_Type_of_Algorithmic_Bias_and_Uncertainty_in_Scholarly_Work">ResearchGate: R. Jain &amp; A. Jain (2024)</a></li>
+</ul>
+<hr />
+<p><a href="#quick-navigation">🔼 Back to Top</a></p>
+<h2 id="2-shobhit-jain-et-al-2025-medical-chatbot-using-genai">2. Shobhit Jain et al. (2025) – <em>Medical Chatbot using GenAI</em></h2>
+<h3 id="overview_9">📖 Overview</h3>
+<p>Design and evaluation of a <strong>domain-specific medical chatbot</strong> powered by generative AI. This work emphasizes ethical boundaries, hallucination reduction, and prompt conditioning in healthcare.</p>
+<h3 id="relevance">🧠 Relevance</h3>
+<ul>
+<li>Domain-specific fine-tuning and knowledge integration</li>
+<li>Early evaluation of chatbot reliability in critical use cases</li>
+</ul>
+<h3 id="reference_6">📄 Reference</h3>
+<ul>
+<li><a href="https://www.researchgate.net/publication/391704328_A_Generative_AI-Powered_Medical_Chatbot_Design_Implementation_and_Evaluation">Medical Chatbot by Jain et al.</a></li>
+</ul>
+<hr />
+<h2 id="comparative-summary">📊 Comparative Summary</h2>
+<table>
+<thead>
+<tr>
+<th>Paper / Title</th>
+<th>Year</th>
+<th>Area</th>
+<th>Key Contribution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Generative AI in Writing Research Papers</td>
+<td>2024</td>
+<td>Academic AI Ethics</td>
+<td>New algorithmic bias, authorship challenges</td>
+</tr>
+<tr>
+<td>GenAI-Powered Medical Chatbot</td>
+<td>2025</td>
+<td>Applied Healthcare AI</td>
+<td>Domain-specific chatbot, hallucination mitigation</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="further-reading_3">🔗 Further Reading</h2>
+<ul>
+<li><a href="https://openai.com/research/">OpenAI Research</a></li>
+<li><a href="https://montrealethics.ai">Ethical Concerns with GenAI Tools – Montreal AI Ethics</a></li>
+<li><a href="https://ai.google/discover/prompt-engineering/">Prompt Engineering Guidelines – Google AI</a></li>
+<li><a href="https://arxiv.org/search/?query=generative+ai+education&amp;searchtype=all">GenAI in Education &amp; Research Policy (arXiv)</a></li>
+</ul>
+<blockquote>
+<p>Please provide a more specific title or topic to help refine the correct paper reference for Jain et al., 2025.</p>
+</blockquote>
+<p><a href="#quick-navigation">🔼 Back to Top</a></p>
 
 
 
