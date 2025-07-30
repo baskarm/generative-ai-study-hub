@@ -1,16 +1,14 @@
 site_name: Generative AI Study Hub
-site_url: https://baskarm.github.io/generative-ai-study-hub/
-use_directory_urls: false  # Ensures compatibility with GitHub Pages
+site_url: https://generative-ai-study-hub.github.io/generative-ai-study-hub/
+use_directory_urls: false
 
 theme:
   name: material
   logo: images/adhana.png
   custom_dir: docs/partials
-
   font:
     text: Inter
     code: Fira Code
-
   palette:
     - scheme: default
       primary: white
@@ -24,7 +22,6 @@ theme:
       toggle:
         icon: material/weather-sunny
         name: Switch to light mode
-
   features:
     - navigation.tabs
     - navigation.sections
@@ -53,31 +50,7 @@ nav:
   - RAG + LangChain: study-path/5-rag-langchain/index.md
   - LLM Ops: study-path/6-llmops/index.md
   - AI Evaluation: study-path/7-ai-eval-engineering/index.md
-  - Reference Hub:
-      - Overview: reference-hub/index.md
-      - Foundation:
-          - NLP Overview: reference-hub/foundation/nlp-overview.md
-          - Transformers: reference-hub/foundation/transformers.md
-          - Models: reference-hub/foundation/models.md
-      - Practice:
-          - Tokenization: reference-hub/practice/tokenization.md
-          - Embeddings: reference-hub/practice/embeddings.md
-          - Fine Tuning: reference-hub/practice/fine-tuning.md
-          - Efficiency: reference-hub/practice/efficiency.md
-      - Applications:
-          - Semantic Search: reference-hub/applications/semantic-search.md
-          - QA from Docs: reference-hub/applications/qa-over-docs.md
-          - Instruction Tuning: reference-hub/applications/instruction-tuning.md
-      - LLMs:
-          - Introduction: reference-hub/llms/intro.md
-          - RLHF: reference-hub/llms/rlhf.md
-          - Scaling: reference-hub/llms/scaling.md
-      - Knowledge:
-          - Prompt Engineering: reference-hub/knowledge/prompt-engineering.md
-          - Hugging Face: reference-hub/knowledge/huggingface.md
-          - Research Notes: reference-hub/knowledge/research.md
-          - Tools & Libraries: reference-hub/knowledge/tools.md
-          - Learning Links: reference-hub/knowledge/learning-links.md
+  - Reference Hub: reference-hub/index.md   # ✅ Only the landing page shown
 
 plugins:
   - search

@@ -1,4 +1,5 @@
-# deploy.py
+#%%
+
 import subprocess
 
 commands = [

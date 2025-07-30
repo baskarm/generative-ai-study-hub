@@ -5,8 +5,8 @@
 - [Implementing DeepSpeed Practically](#implementing-deepspeed-practically)
 - [Fully Sharded Data Parallel (FSDP) Theoretical Insights](#fully-sharded-data-parallel-fsdp-theoretical-insights)
 - [Applying FSDP in Practice](#applying-fsdp-in-practice)
-- [Course Conclusion and Future Directions](#course-conclusion-and-future-directions)
-- [Practice Test 2: LLM Mastery](#practice-test-2-llm-mastery)
+- [Conclusion](#course-conclusion-and-future-directions)
+
 
 ---
 
@@ -430,7 +430,7 @@ gradient_checkpointing: true
 - Compatible with massive models (GPT-like, BERT variants).
 - Reduces per-GPU memory footprint → supports larger batch sizes.
 
-[Back to Top](#-quick-navigation)
+[Back to Top](#quick-navigation)
 
 ---
 
@@ -446,7 +446,7 @@ gradient_checkpointing: true
 - **Shards** weights across GPUs.
 - Optimizes **both training speed and memory usage**.
 
-[Back to Top](#-quick-navigation)
+[Back to Top](#quick-navigation)
 
 ---
 
@@ -489,7 +489,7 @@ FSDP provides 4 sharding strategies, similar in spirit to ZeRO stages (used by D
 | Hybrid   | ✅ | ✅ | ✅ | 🟢 | 🟢 | Training + eval |
 | Full     | ✅ | ✅ | ✅ | 🟢🟢🟢 | 🔴 | Huge models |
 
-[Back to Top](#-quick-navigation)
+[Back to Top](#quick-navigation)
 
 ---
 
@@ -509,7 +509,7 @@ FSDP provides 4 sharding strategies, similar in spirit to ZeRO stages (used by D
 📎 [FSDP on Hugging Face](https://huggingface.co/docs/accelerate/usage_guides/fsdp)
 📄 [FSDP ArXiv Paper](https://arxiv.org/abs/2210.06628)
 
-[Back to Top](#-quick-navigation)
+[Back to Top](#quick-navigation)
 
 ---
 
@@ -529,7 +529,7 @@ FSDP provides 4 sharding strategies, similar in spirit to ZeRO stages (used by D
 
 🧠 Bonus: Even without full sharding, FSDP helps reduce memory usage to allow **larger batch sizes**.
 
-[Back to Top](#-quick-navigation)
+[Back to Top](#quick-navigation)
 
 ---
 
@@ -561,7 +561,7 @@ FSDP provides 4 sharding strategies, similar in spirit to ZeRO stages (used by D
 - [📚 Microsoft ZeRO-3 Optimization Paper](https://arxiv.org/abs/1910.02054)  
   Foundational paper on memory-optimized training with ZeRO, useful for comparing against FSDP.
 
-[Back to Top](#-quick-navigation)
+[Back to Top](#quick-navigation)
 
 
  
@@ -570,13 +570,263 @@ FSDP provides 4 sharding strategies, similar in spirit to ZeRO stages (used by D
 
 ## Applying FSDP in Practice
 
+
+## 📌 Quick Navigation
+- [Course Overview](#course-overview)
+- [Hardware Setup](#hardware-setup)
+- [Configuration for Training](#configuration-for-training)
+- [FSDP Setup](#fsdp-setup)
+- [Training Execution](#training-execution)
+- [Reflections & Takeaways](#reflections--takeaways)
+- [References & Further Reading](#references--further-reading)
+
+## Course Overview
+
+In this session, we train the **LLaMA 3 - 70B** model using **Fully Sharded Data Parallelism (FSDP)** with **QLoRA** support on NVIDIA GPUs. The aim is to enable fine-tuning such a massive model efficiently using limited hardware (2 x NVIDIA L4 GPUs).
+
+- Model: LLaMA 3 - 70B
+- Framework: Axolotl
+- Parallelism Strategy: Fully Sharded Data Parallel (FSDP)
+- Quantization: 4-bit QLoRA
+- GPUs used: 2 x NVIDIA L4 (24GB each)
+- Cost: ~$2/hr via RunPod
+
+[Back to Top](#quick-navigation)
+
+## Hardware Setup
+
+- Initial RTX 4090 setup was dropped due to poor inter-GPU communication.
+- Replaced with NVIDIA L4s for better memory distribution.
+- L4s provide equivalent VRAM (24GB) and are more optimal for sharded training.
+
+[Back to Top](#quick-navigation)
+
+## Configuration for Training
+
+### Key Parameters
+
+```yaml
+base_model: casperhansen/llama-3-70b-fp16
+datasets:
+  - path: Yukang/LongAlpaca-12k
+    type: alpaca
+output_dir: ./models/llama70B-LongAlpaca
+sequence_length: 1024
+pad_to_sequence_len: true
+special_tokens:
+  pad_token: <|end_of_text|>
+optimizer: adamw_torch
+micro_batch_size: 1
+num_epochs: 1
+learning_rate: 0.0002
+adapter: qlora
+load_in_4bit: true
+flash_attention: true
+```
+
+- Switched from Adam8bit to `adamw_torch` for FSDP compatibility.
+- Used `pad_to_sequence_len` and specified padding tokens for uniform batch processing.
+- LoRA & quantization settings enable memory efficiency for 70B models.
+
+👉 [Open in Colab](https://colab.research.google.com/drive/1ayCPAZ9ysyPBxMnlT-XmvFxyF0k6jQOi?usp=sharing)  
+<a href="https://colab.research.google.com/drive/1ayCPAZ9ysyPBxMnlT-XmvFxyF0k6jQOi?usp=sharing"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Colab"></a>
+
+[Back to Top](#quick-navigation)
+
+## FSDP Setup
+
+### Configuration
+
+```yaml
+fsdp:
+  - full_shard
+  - auto_wrap
+fsdp_config:
+  fsdp_offload_params: true
+  fsdp_cpu_ram_efficient_loading: true
+  fsdp_state_dict_type: FULL_STATE_DICT
+  fsdp_transformer_layer_cls_to_wrap: LlamaDecoderLayer
+```
+
+- Enabled `cpu_ram_efficient_loading` to reduce active memory use.
+- Used `FULL_STATE_DICT` for complete checkpoint saving.
+- `auto_wrap` and `full_shard` ensures correct layer partitioning for LLaMA's decoder.
+
+[Hugging Face Docs on FSDP](https://huggingface.co/docs/accelerate/en/usage_guides/fsdp)
+
+[Back to Top](#quick-navigation)
+
+## Training Execution
+
+- Axolotl script starts loading and quantizing the massive model (150GB in FP16).
+- First-time load may take up to 40 minutes.
+- Each GPU receives a different shard of the model.
+- Memory utilization is optimized, loading only actively used weights.
+- Training is slow but feasible with 4-bit quantization and FSDP+QLoRA.
+
+🟢 Success: Fine-tuning a 70B LLM on only 2 x 24GB GPUs  
+🔴 Tradeoff: Long training times
+
+[Back to Top](#quick-navigation)
+
+## Reflections & Takeaways
+
+- Demonstrates the power of modern tooling (Axolotl, FSDP, QLoRA).
+- Scaling large models is possible without massive GPU clusters.
+- Careful configuration of optimizer, batch size, memory usage, and quantization is key.
+- Offers a hands-on blueprint for scaling up model training workflows.
+
+[Back to Top](#quick-navigation)
+
+## References & Further Reading
+
+- [LLaMA 3 Hugging Face Card](https://huggingface.co/casperhansen/llama-3-70b-fp16)
+- [Axolotl GitHub](https://github.com/OpenAccess-AI-Collective/axolotl)
+- [FSDP Docs – Hugging Face Accelerate](https://huggingface.co/docs/accelerate/en/usage_guides/fsdp)
+- [RunPod – GPU rentals](https://www.runpod.io/)
+- [QLoRA Paper (arXiv)](https://arxiv.org/abs/2305.14314)
+- [LoRA: Low-Rank Adaptation of LLMs](https://arxiv.org/abs/2106.09685)
+- [Meta’s LLaMA 3 Overview](https://ai.meta.com/blog/meta-llama-3/)
+
 --
 
 [Back to Top](#quick-navigation)
 
 ---
 
-## Course Conclusion and Future Directions
+## Conclusion
+
+## 📌 Quick Navigation
+- [Course Reflection & Summary](#course-reflection--summary)
+- [Section 1: Foundations of LLMs](#section-1-foundations-of-llms)
+- [Section 2: Preparing for Training](#section-2-preparing-for-training)
+- [Section 3: Advanced Training Techniques](#section-3-advanced-training-techniques)
+- [Section 4: Specialized LLM Techniques](#section-4-specialized-llm-techniques)
+- [Section 5: Scaling LLM Training](#section-5-scaling-llm-training)
+- [Section 6: Final Roadmap](#section-6-final-roadmap)
+- [References & Further Reading](#references--further-reading)
+
+---
+
+## Course Reflection & Summary
+
+This final lesson encapsulates our comprehensive journey through large language models (LLMs) and generative AI. From foundational knowledge to advanced techniques, each section provided practical, actionable insights for building and deploying LLMs.
+
+[Back to Top](#📌quick-navigation)
+
+---
+
+## Section 1: Foundations of LLMs
+
+### Topics Covered:
+- Understanding LLM mechanics and generation
+- Reinforcement Learning with Human Feedback (RLHF)
+- Input/output architecture of LLMs
+- Chat template construction for structured interactions
+- Model selection frameworks for different use cases
+- Techniques to guide and optimize model outputs
+
+### Real-World Use Case:
+Fine-tuning a chatbot to deliver consistent customer service responses using structured prompts.
+
+[Back to Top](#📌quick-navigation)
+
+---
+
+## Section 2: Preparing for Training
+
+### Key Concepts:
+- Impact of sequence length on model efficiency
+- Token count intuition and compression
+- Numerical precision trade-offs (FP32, FP16, BF16)
+- Hands-on basics of LLM training setups
+
+### Tools:
+- Tokenizers from Hugging Face
+- Tensor precision profiling with PyTorch
+
+### Use Case:
+Training a document summarization model using low-bit precision and optimized token lengths.
+
+[Back to Top](#📌quick-navigation)
+
+---
+
+## Section 3: Advanced Training Techniques
+
+### Covered Topics:
+- Training bottlenecks in memory and compute
+- Parameter Efficient Fine-Tuning (PEFT) & LoRA
+- Gradient accumulation & checkpointing strategies
+- Adapter merging and LoRA evaluations
+
+
+
+[Back to Top](#📌quick-navigation)
+
+---
+
+## Section 4: Specialized LLM Techniques
+
+### Techniques Explored:
+- 8-bit training for resource efficiency
+- Task-specific output learning
+- Flash Attention for memory-constrained GPUs
+- 4-bit quantization with QLoRA
+
+### Colab Link:
+👉 [Open in Colab](https://colab.research.google.com/github/huggingface/peft/blob/main/examples/qlora/qlora_training.ipynb)
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/huggingface/peft/blob/main/examples/qlora/qlora_training.ipynb)
+
+### ArXiv Reference:
+- [QLoRA: Efficient Finetuning of Quantized LLMs](https://arxiv.org/abs/2305.14314)
+
+[Back to Top](#📌quick-navigation)
+
+---
+
+## Section 5: Scaling LLM Training
+
+### Focus Areas:
+- Multi-GPU model training
+- DeepSpeed integration
+- Fully Sharded Data Parallelism (FSDP)
+
+### Technologies:
+- [DeepSpeed GitHub](https://github.com/microsoft/DeepSpeed)
+- [FSDP Docs](https://pytorch.org/blog/introducing-pytorch-fully-sharded-data-parallel-api/)
+
+### Use Case:
+Deploying GPT-like models across A100 clusters using DeepSpeed + FSDP for enterprise-scale tasks.
+
+[Back to Top](#📌quick-navigation)
+
+
+---
+
+## Section 6: Final Roadmap:
+
+
+
+> ![Learning Roadmap](../../images/learning-roadmap.png)
+
+---
+
+## References & Further Reading
+
+- [Hugging Face Transformers Docs](https://huggingface.co/docs/transformers/index)
+- [OpenAI Cookbook](https://github.com/openai/openai-cookbook)
+- [LoRA: Parameter Efficient Fine-Tuning](https://arxiv.org/abs/2106.09685)
+- [DeepSpeed](https://www.deepspeed.ai/)
+- [FlashAttention Paper](https://arxiv.org/abs/2205.14135)
+- [QLoRA: Quantization for LLMs](https://arxiv.org/abs/2305.14314)
+- [Microsoft FSDP](https://pytorch.org/blog/introducing-pytorch-fully-sharded-data-parallel-api/)
+- [XAI Research](https://xai.org/research)
+
+---
+
+
 
 ---
 

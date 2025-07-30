@@ -1,4 +1,10 @@
 
+
+
+
+> ![Hypothesis Testing Templates](../../images/Hypothesis_Testing_Templates.png)
+
+
 # 📊 Hypothesis Testing - Summary Guide
 
 > This Markdown document is designed for MkDocs Material theme. It includes detailed summaries, embedded images, Colab links, CSV datasets, and use case examples based on the screenshots provided for the Hypothesis Testing lesson.
